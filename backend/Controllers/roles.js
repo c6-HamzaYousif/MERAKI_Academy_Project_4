@@ -20,7 +20,7 @@ const updateRole = (req, res) => {
     .then((result) => {
         const successObj = {
             success: true,
-            newRole: {type, permissions}
+            updatedRole: {type, permissions}
         }
         res.status(201).json(successObj)
     })

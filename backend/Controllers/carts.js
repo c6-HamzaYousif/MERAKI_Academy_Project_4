@@ -34,5 +34,23 @@ const deleteCart = (req, res) => {
     })
 }
 
-module.exports = {addToCart, deleteCart};
+const getAllCarts = (req, res) => {
+    const userCarts = req.params.id;
+    cartsModel.find({user: userCarts})
+    .populate("items")
+    .exec()
+    .then((result) => {
+        const successObject = {
+            success: true,
+            message: "All carts",
+            product: result
+        }
+        res.status(201).json(successObject);
+    })
+    .catch((err) => {
+        res.status(401).json(err.message)
+    })
+}
+
+module.exports = {addToCart, deleteCart, getAllCarts};
 
