@@ -19,5 +19,20 @@ const addToCart = (req, res) => {
 
 }
 
-module.exports = addToCart;
+const deleteCart = (req, res) => {
+    const selectedCart = req.params.id;
+    cartsModel.findOneAndDelete({_id: selectedCart})
+    .then((result) => {
+        const successObject = {
+            success: true,
+            message: "Item deleted successfully from your shopping cart",
+        }
+        res.status(201).json(successObject);
+    })
+    .catch((err) => {
+        res.status(401).json(err.message)
+    })
+}
+
+module.exports = {addToCart, deleteCart};
 
