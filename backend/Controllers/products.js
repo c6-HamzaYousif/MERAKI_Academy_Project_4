@@ -17,4 +17,22 @@ const addProduct = (req, res) => {
     })
 }
 
-module.exports = addProduct;
+const updateProduct = (req, res) => {
+    const {name, price, availableItems, type, image, gender, size, ageRange, season} = req.body;
+    const selectedProductId = req.params.id;
+    productsModel.findOneAndUpdate({_id: selectedProductId}, {name, price, type, availableItems, image, gender, size, ageRange, season}, {new:true})
+    .then((result) => {
+        const successObject = {
+            success: true,
+            message: "updated successfully",
+            product: result
+        }
+        res.status(201).json(successObject);
+
+    })
+    .catch((err) => {
+        res.status(404).json(err.message)
+    })
+}
+
+module.exports = {addProduct, updateProduct};
