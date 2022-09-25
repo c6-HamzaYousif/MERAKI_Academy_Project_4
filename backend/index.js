@@ -4,19 +4,24 @@ require("dotenv").config();
 require("./models/db");
 
 const app = express();
-const PORT = process.env.PORT;
+// const PORT = process.env.PORT;
+const PORT = 5000;
+
 
 app.use(cors());
 app.use(express.json());
 
 // Import Routers
 const rolesRouter = require('./routes/roles');
+const usersRouter = require('./routes/users');
+
 
 
 
 
 // Routes Middleware
 app.use('/roles', rolesRouter);
+app.use('/users', usersRouter);
 
 
 // Handles any other endpoints [unassigned - endpoints]
