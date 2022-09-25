@@ -20,4 +20,16 @@ const register = (req, res) => {
     })
 }
 
-module.exports = register;
+const getAllUsers = (req, res) => {
+    usersModel.find({})
+    .populate("role")
+    .exec()
+    .then((result) => {
+        res.status(200).json(result)
+    })
+    .catch((err) => {
+        res.status(404).json(err.message)
+    })
+}
+
+module.exports = {register, getAllUsers};
