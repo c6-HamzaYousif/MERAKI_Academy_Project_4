@@ -14,14 +14,13 @@ app.use(express.json());
 // Import Routers
 const rolesRouter = require('./routes/roles');
 const usersRouter = require('./routes/users');
-
-
-
-
+const productsRouter = require('./routes/products');
 
 // Routes Middleware
 app.use('/roles', rolesRouter);
 app.use('/users', usersRouter);
+app.use('/products', productsRouter);
+
 
 
 // Handles any other endpoints [unassigned - endpoints]
