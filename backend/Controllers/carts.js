@@ -1,0 +1,23 @@
+const express = require('express');
+const cartsModel = require('../models/carts')
+
+const addToCart = (req, res) => {
+    const {items, user} = req.body;
+    const cartInstance = new cartsModel({items, user})
+    .save()
+    .then((result) => {
+        const successObject = {
+            success: true,
+            message: "Product added successfully to your shopping cart",
+            product: result
+        }
+        res.status(201).json(successObject);
+    })
+    .catch((err) => {
+        res.status(404).json(err.message)
+    })
+
+}
+
+module.exports = addToCart;
+

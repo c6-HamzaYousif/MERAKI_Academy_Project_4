@@ -4,8 +4,8 @@ require("dotenv").config();
 require("./models/db");
 
 const app = express();
-// const PORT = process.env.PORT;
-const PORT = 5000;
+const PORT = process.env.PORT;
+// const PORT = 5000;
 
 
 app.use(cors());
@@ -15,12 +15,13 @@ app.use(express.json());
 const rolesRouter = require('./routes/roles');
 const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
+const cartsRouter = require('./Routes/carts')
 
 // Routes Middleware
 app.use('/roles', rolesRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
-
+app.use('/carts', cartsRouter);
 
 
 // Handles any other endpoints [unassigned - endpoints]
