@@ -35,4 +35,19 @@ const updateProduct = (req, res) => {
     })
 }
 
-module.exports = {addProduct, updateProduct};
+const deleteProduct = (req, res) => {
+    const selectedProduct = req.params.id;
+    productsModel.findOneAndDelete({_id: selectedProduct})
+    .then((result) => {
+        const successObject = {
+            success: true,
+            message: "Product deleted successfully",
+        }
+        res.status(201).json(successObject);
+    })
+    .catch((err) => {
+        res.status(401).json(err.message)
+    })
+}
+
+module.exports = {addProduct, updateProduct, deleteProduct};
