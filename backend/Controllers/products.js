@@ -50,4 +50,37 @@ const deleteProduct = (req, res) => {
     })
 }
 
-module.exports = {addProduct, updateProduct, deleteProduct};
+const getAllProducts = (req, res) => {
+    productsModel.find({})
+    .populate("comments")
+    .exec()
+    .then((result) => {
+        const successObject = {
+            success: true,
+            message: "All products",
+            product: result
+        }
+        res.status(201).json(successObject);
+    })
+    .catch((err) => {
+        res.status(401).json(err.message)
+    })
+}
+
+const getProductById = (req, res) => {
+    const selectedProduct = req.params.id;
+    productsModel.find({_id: selectedProduct})
+    .then((result) => {
+        const successObject = {
+            success: true,
+            message: "Requested product",
+            product: result
+        }
+        res.status(201).json(successObject);
+    })
+    .catch((err) => {
+        res.status(404).json(err.message)
+    })
+}
+
+module.exports = {addProduct, updateProduct, deleteProduct, getAllProducts, getProductById};
