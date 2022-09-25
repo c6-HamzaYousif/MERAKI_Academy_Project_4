@@ -32,4 +32,39 @@ const getAllUsers = (req, res) => {
     })
 }
 
-module.exports = {register, getAllUsers};
+const login = (req, res) => {
+    const {email, password} = req.body;
+    usersModel.find({email: email})
+    .populate("role")
+    .exec()
+    .then((result) => {
+        bcrypt.compare(password, result[0].password)
+        .then((check) => {
+            if(!check){
+                res.status(404).json("Wrong password")
+            }else{
+                const payload = {
+                    role: result[0].role.type,
+                    permissions: result[0].role.permissions
+                }
+                const secret = "HushhhhhhhhhhThisIsASecret"
+                const options = {
+                    expiresIn: "1h"
+                }
+                const token = jwt.sign(payload, secret, options)
+                const successObject = {
+                    message: "Logged in successfully",
+                    success: true,
+                    token: token,
+                    result: result
+                }
+                res.status(200).json(successObject)
+            }
+        })
+    })
+    .catch((err) => {
+        res.status(404).json("Email not found")
+    })
+}
+
+module.exports = {register, getAllUsers, login};
