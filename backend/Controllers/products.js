@@ -52,8 +52,8 @@ const deleteProduct = (req, res) => {
 
 const getAllProducts = (req, res) => {
     productsModel.find({})
-    .populate("comments")
-    .exec()
+    // .populate("comments")
+    // .exec()
     .then((result) => {
         const successObject = {
             success: true,

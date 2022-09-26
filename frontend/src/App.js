@@ -36,7 +36,12 @@ function App() {
     return(
 
       <NewContext.Provider value={{profilePicture}}>
-              <Navbar />
+        <Navbar />
+
+        <Routes>
+          <Route path = "/" element = {<Home />} />
+        </Routes>
+
       </NewContext.Provider>
 
     )
