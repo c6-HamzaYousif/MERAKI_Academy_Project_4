@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
 const register = (req, res) => {
-    const {firstName, lastName, email, password, age, city, image, role="632dcd8b819bf5883b5b029f"} = req.body;
+    const {firstName, lastName, email, password, age, city, image, role="6330aca8842611c737b59c50"} = req.body;
     const userInstance = new usersModel({firstName, lastName, email, password, age, city, image, role})
     .save()
     .then((result) => {
