@@ -12,22 +12,36 @@ export const NewContext = createContext();
 
 function App() {
   const [token, setToken] =useState('')
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [profilePicture, setProfilePicture] = useState('');
   localStorage.setItem("theToken", token)
   const theToken = localStorage.getItem("theToken")
-  return (
-    <NewContext.Provider value={{setToken}}>
-    <div className="App">
-      {/* <Navbar /> */}
-    <Routes>
-      <Route path = "/" element = {<Login />} />
-      <Route path = "/register" element = {<Register />} />
-      <Route path = "/home" element = {<Home />} />
-    </Routes>
 
-    </div>
-    </NewContext.Provider>
+  if(!isLoggedIn){
+    return (
+    
+      <NewContext.Provider value={{setToken, setIsLoggedIn, setProfilePicture}}>
+      <div className="App">
+      <Routes>
+        <Route path = "/" element = {<Login />} />
+        <Route path = "/register" element = {<Register />} />
+        <Route path = "/home" element = {<Home />} />
+      </Routes>
+  
+      </div>
+      </NewContext.Provider>
+  
+    );
+  }else{
+    return(
 
-  );
+      <NewContext.Provider value={{profilePicture}}>
+              <Navbar />
+      </NewContext.Provider>
+
+    )
+  }
+  
 }
 
 export default App;

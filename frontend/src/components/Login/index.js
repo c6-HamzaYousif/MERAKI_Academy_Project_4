@@ -7,7 +7,9 @@ import {NewContext} from '../../App'
 
 const Login = () => {
   const setTokenValue = useContext(NewContext).setToken;
-  // console.log(setTokenValue);
+  const setLogged = useContext(NewContext).setIsLoggedIn;
+  const profilePic = useContext(NewContext).setProfilePicture;
+
   const navigate = useNavigate();
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -29,9 +31,10 @@ const Login = () => {
       password: password
     })
     .then((result) => {
-      console.log(result.data.token);
+      profilePic(result.data.result[0].image)
       setTokenValue(result.data.token)
-      navigate('/home')
+      setLogged(true)
+      // navigate('/home')
     })
     .catch((err) => {
       console.log(err);
