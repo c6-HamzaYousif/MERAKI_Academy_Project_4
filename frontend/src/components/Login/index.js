@@ -1,9 +1,13 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import axios from "axios";
+import {NewContext} from '../../App'
+
 
 
 const Login = () => {
+  const setTokenValue = useContext(NewContext).setToken;
+  // console.log(setTokenValue);
   const navigate = useNavigate();
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -25,7 +29,9 @@ const Login = () => {
       password: password
     })
     .then((result) => {
-      console.log(result.data);
+      console.log(result.data.token);
+      setTokenValue(result.data.token)
+      navigate('/home')
     })
     .catch((err) => {
       console.log(err);
