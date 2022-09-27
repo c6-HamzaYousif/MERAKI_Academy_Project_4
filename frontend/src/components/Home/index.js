@@ -47,7 +47,7 @@ const Home = () => {
         <>
         {menTop.map((elem, i) => {
             return(
-               <div>
+               <div key={i}>
                 <h2>{elem.name}</h2>
                 <img src={elem.image} />
                 <h2>{elem.price}</h2>
@@ -56,7 +56,7 @@ const Home = () => {
         }) }
         {menBottom.map((elem, i) => {
             return(
-               <div>
+               <div key={i}>
                 <h2>{elem.name}</h2>
                 <img src={elem.image} />
                 <h2>{elem.price}</h2>
@@ -65,7 +65,7 @@ const Home = () => {
         }) }
         {menShoes.map((elem, i) => {
             return(
-               <div>
+               <div key={i}>
                 <h2>{elem.name}</h2>
                 <img src={elem.image} />
                 <h2>{elem.price}</h2>

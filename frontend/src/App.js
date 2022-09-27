@@ -14,6 +14,7 @@ function App() {
   const [token, setToken] =useState('')
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [profilePicture, setProfilePicture] = useState('');
+
   localStorage.setItem("theToken", token)
   const theToken = localStorage.getItem("theToken")
 

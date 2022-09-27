@@ -10,6 +10,7 @@ const Register = () => {
   const [lastName, setLastName] = useState('')
   const [age, setAge] = useState('')
   const [city, setCity] = useState('')
+  const [gender, setGender] = useState('')
   const [image, setImage] = useState('')
   const [userResponse, setUserResponse] = useState('')
 
@@ -34,12 +35,16 @@ const Register = () => {
   const handleImage = (e) => {
     setImage(e.target.value)
   }
+  const handleGender = (e) => {
+    setGender(e.target.value)
+  }
 
   const handleButton = () => {
     axios.post('http://localhost:5000/users/register', {
       firstName: firstName,
       lastName: lastName,
       age: age,
+      gender: gender,
       city: city,
       email: email,   
       password: password,
@@ -66,6 +71,7 @@ const Register = () => {
       <input onChange={handleEmail} placeholder="Email" />
       <input onChange={handlePassword} placeholder="Password" type={"password"} />
       <input onChange={handleAge} type={Number} placeholder = "Age" />
+      <input onChange={handleGender} type={Text} placeholder = "Gender" />
       <input onChange={handleCity} type={Text} placeholder = "City" />
       <input onChange={handleImage} type={Text} placeholder = "Image-URL" />
 
