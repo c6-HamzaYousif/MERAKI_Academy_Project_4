@@ -4,8 +4,8 @@ const productsModel = require('../models/products')
 
 const addComments = (req, res) => {
     const selectedProduct = req.params.id
-    const {comment, commenter} = req.body;
-    const commentInstance = new commentsModel({comment, commenter})
+    const {comment, commenter, image, firstName} = req.body; 
+    const commentInstance = new commentsModel({comment, commenter, image, firstName})
     .save()
     .then((result) => {
         productsModel.findOneAndUpdate({_id: selectedProduct}, {$push: {comments: result._id }})

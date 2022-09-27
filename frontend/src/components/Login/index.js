@@ -12,7 +12,7 @@ const Login = () => {
   const setUserGender = useContext(NewContext).setLoggedInUserGender;
   const setUserAge = useContext(NewContext).setLoggedInUserAge;
   const setLoggerId = useContext(NewContext).setLoggedInUserId;
-  // const loggerFN = useContext(NewContext).loggerFirstName;
+  const loggerFN = useContext(NewContext).setLoggerFirstName;
 
 
   const navigate = useNavigate();
@@ -42,7 +42,7 @@ const Login = () => {
       setUserAge(result.data.result[0].age);
       setTokenValue(result.data.token);
       setLoggerId(result.data.result[0]._id)
-      // loggerFN(result.data.result[0].firstName)
+      loggerFN(result.data.result[0].firstName)
       setLogged(true);
       // navigate('/home')
     })

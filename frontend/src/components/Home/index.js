@@ -9,6 +9,10 @@ const Home = () => {
     const showTheProduct = useContext(NewContext).show;
     const setShowTheProduct = useContext(NewContext).setShow;
     const loggerId = useContext(NewContext).loggedInUserId;
+    const loggerName = useContext(NewContext).loggerFirstName;
+    const profilePic = useContext(NewContext).profilePicture;
+
+
 
     const[products, setProducts] = useState([]);
     const[singleProducts, setSingleProduct] = useState([]);
@@ -137,11 +141,14 @@ const Home = () => {
         console.log(productID);
         axios.post(`http://localhost:5000/comments/add/${productID}`, {
             comment: comment,
-            commenter: loggerId
+            commenter: loggerId,
+            image: profilePic,
+            firstName: loggerName
         })
         .then((result) => {
             console.log(result);
             setShowInputComment(false)
+            // getallProducts()
         })
         .catch((err) => {
             console.log(err.response);
@@ -297,7 +304,18 @@ const Home = () => {
                  }
 
                 {singleProducts[0].comments.map((elem, i) => {
-                        return <h4 className = "prod-span" key={i}>{elem.comment}</h4>
+
+                    return (
+                        <div className="comment-box">
+                        <div className="small-comment-box">
+                            <img className="comment-pic" src= {elem.image} />
+                            <h4 className = "comment-text-name">{elem.firstName}</h4>
+                        </div>
+                        <div >
+                            <h4 className = "comment-text-comment">{elem.comment}</h4>
+                        </div>    
+                    </div>
+                    )
                  })}
 
                 </div>

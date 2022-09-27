@@ -4,6 +4,8 @@ const commentsSchema = new mongoose.Schema({
 
 comment: {type: String, required: true},
 commenter: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+image: {type: String},
+firstName: {type: String}
 
 },  {timestamps: true })
 
