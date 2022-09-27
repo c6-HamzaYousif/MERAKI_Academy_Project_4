@@ -8,11 +8,14 @@ const Home = () => {
     const age = useContext(NewContext).loggedInUserAge;
     const showTheProduct = useContext(NewContext).show;
     const setShowTheProduct = useContext(NewContext).setShow;
+    const loggerId = useContext(NewContext).loggedInUserId;
 
     const[products, setProducts] = useState([]);
     const[singleProducts, setSingleProduct] = useState([]);
     const[addComment, setAddComment] = useState(false);
     const [showInputComment, setShowInputComment] = useState(false);
+    const [comment, setCommment] = useState('')
+    const [productID, setProductID] = useState('')
     
     const[mensWear, setMenWear] = useState([]);
     const[menTop, setMenTop] = useState([]);
@@ -107,6 +110,7 @@ const Home = () => {
 
     const showProduct = (e) => {
         const selectedProductId = e.target.id;
+        setProductID(selectedProductId);
         axios.get(`http://localhost:5000/products/${selectedProductId}`)
         .then((result) => {
             console.log(result.data.product);
@@ -119,13 +123,29 @@ const Home = () => {
     }
 
     const handleCommentButton = () => {
-        if(!addComment){
-            setAddComment(true);
+        // if(!addComment){
+            // setAddComment(true);
             setShowInputComment(true);
             // return(
             //     <input placeholder="Type your opinion about this product" />
             // )
-        }
+        // }
+    }
+    const handleSubmitComment = () => {
+        console.log(loggerId);
+        console.log(comment);
+        console.log(productID);
+        axios.post(`http://localhost:5000/comments/add/${productID}`, {
+            comment: comment,
+            commenter: loggerId
+        })
+        .then((result) => {
+            console.log(result);
+            setShowInputComment(false)
+        })
+        .catch((err) => {
+            console.log(err.response);
+        })
     }
 
     if(!showTheProduct){
@@ -265,13 +285,19 @@ const Home = () => {
                  <h2>Price: {singleProducts[0].price}</h2>
                 </div>
                 <div className="second-baby">
-                    
+
                 <button onClick={handleCommentButton}>Add a comment</button>
                  <br/>
-                 {showInputComment && <textarea placeholder="Type your opinion about this product" />}
+                 {showInputComment && 
+                 <>
+                 <textarea onChange={(e) => {setCommment(e.target.value)}} placeholder="Type your opinion about this product" />
+                 <button onClick={handleSubmitComment}>Submit</button>
+                 <button onClick={() => {setShowInputComment(false)}}>Cancel</button>
+                 </>
+                 }
 
                 {singleProducts[0].comments.map((elem, i) => {
-                        return <span className = "prod-span" key={i}>{elem}</span>
+                        return <h4 className = "prod-span" key={i}>{elem.comment}</h4>
                  })}
 
                 </div>

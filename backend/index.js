@@ -16,7 +16,7 @@ const rolesRouter = require('./routes/roles');
 const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
 const cartsRouter = require('./Routes/carts')
-const commentsRouter = require('./Routes/carts')
+const commentsRouter = require('./Routes/comments')
 
 // Routes Middleware
 app.use('/roles', rolesRouter);

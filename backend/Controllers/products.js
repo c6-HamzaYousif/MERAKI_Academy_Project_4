@@ -70,6 +70,8 @@ const getAllProducts = (req, res) => {
 const getProductById = (req, res) => {
     const selectedProduct = req.params.id;
     productsModel.find({_id: selectedProduct})
+    .populate("comments")
+    .exec()
     .then((result) => {
         const successObject = {
             success: true,
