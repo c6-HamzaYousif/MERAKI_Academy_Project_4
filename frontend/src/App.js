@@ -14,6 +14,9 @@ function App() {
   const [token, setToken] =useState('')
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [profilePicture, setProfilePicture] = useState('');
+  const [loggedInUserGender, setLoggedInUserGender] = useState('')
+  const [loggedInUserAge, setLoggedInUserAge] = useState('')
+  const [show, setShow] = useState(false)
 
   localStorage.setItem("theToken", token)
   const theToken = localStorage.getItem("theToken")
@@ -21,7 +24,7 @@ function App() {
   if(!isLoggedIn){
     return (
     
-      <NewContext.Provider value={{setToken, setIsLoggedIn, setProfilePicture}}>
+      <NewContext.Provider value={{setToken, setIsLoggedIn, setProfilePicture, setLoggedInUserGender, setLoggedInUserAge}}>
       <div className="App">
       <Routes>
         <Route path = "/" element = {<Login />} />
@@ -36,7 +39,7 @@ function App() {
   }else{
     return(
 
-      <NewContext.Provider value={{profilePicture}}>
+      <NewContext.Provider value={{profilePicture, loggedInUserGender, loggedInUserAge, setShow, show}}>
         <Navbar />
 
         <Routes>

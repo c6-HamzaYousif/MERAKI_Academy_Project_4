@@ -9,6 +9,10 @@ const Login = () => {
   const setTokenValue = useContext(NewContext).setToken;
   const setLogged = useContext(NewContext).setIsLoggedIn;
   const profilePic = useContext(NewContext).setProfilePicture;
+  const setUserGender = useContext(NewContext).setLoggedInUserGender;
+  const setUserAge = useContext(NewContext).setLoggedInUserAge;
+
+
 
   const navigate = useNavigate();
   const [email, setEmail] = useState('')
@@ -32,15 +36,16 @@ const Login = () => {
       password: password
     })
     .then((result) => {
-      console.log(result.data.result[0]);
-      profilePic(result.data.result[0].image)
-      setTokenValue(result.data.token)
-      setLogged(true)
+      setUserGender(result.data.result[0].gender);
+      profilePic(result.data.result[0].image);
+      setUserAge(result.data.result[0].age);
+      setTokenValue(result.data.token);
+      setLogged(true);
       // navigate('/home')
     })
     .catch((err) => {
       console.log(err.response.data);
-      setUserResponse(err.response.data)
+      setUserResponse(err.response.data);
     })
   }
 
