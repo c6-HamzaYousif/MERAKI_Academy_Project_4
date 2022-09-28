@@ -27,9 +27,12 @@ function Men() {
         setProductID(selectedProductId);
         axios.get(`http://localhost:5000/products/${selectedProductId}`)
         .then((result) => {
-            console.log(result.data.product);
+            // console.log(result.data.product);
             setSingleProduct(result.data.product)
             setShowTheProduct(true)
+            navigate('/product')
+            console.log("whyy");
+
         })
         .catch((err) => {
             console.log("err");

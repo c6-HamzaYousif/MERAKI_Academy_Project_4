@@ -10,6 +10,7 @@ import Men from "./components/Men";
 import Women from "./components/Women";
 import Kids from "./components/Kids";
 import Product from "./components/Product";
+import Search from "./components/Search";
 
 export const NewContext = createContext();
 
@@ -35,6 +36,7 @@ function App() {
   const[kidsTop, setKidsTop] = useState([]);
   const[kidsBottom, setKidsBottom] = useState([]);
   const[kidsShoes, setKidsShoes] = useState([]);
+  const [searchArray, setSearchArray] = useState([]);
   
   const[singleProducts, setSingleProduct] = useState([]);
   const[addComment, setAddComment] = useState(false);
@@ -63,7 +65,7 @@ function App() {
   }else{
     return(
 
-      <NewContext.Provider value={{profilePicture, loggedInUserGender, loggedInUserAge, setShow, show, loggedInUserId, loggerFirstName, setWomenWear, womenShoes, setWomenShoes, womenTop, setWomenTop, womenBottom, setWomenBottom, womenWear, mensWear, setMenWear, menTop, setMenTop, menBottom, setMenBottom, menShoes, setMenShoes, kidsWear, setKidsWear, kidsTop, setKidsTop, kidsBottom, setKidsBottom, kidsShoes, setKidsShoes,   singleProducts, setSingleProduct, addComment, setAddComment, showInputComment, setShowInputComment, comment, setCommment, productID, setProductID}}>
+      <NewContext.Provider value={{profilePicture, loggedInUserGender, loggedInUserAge, setShow, show, loggedInUserId, loggerFirstName, setWomenWear, womenShoes, setWomenShoes, womenTop, setWomenTop, womenBottom, setWomenBottom, womenWear, mensWear, setMenWear, menTop, setMenTop, menBottom, setMenBottom, menShoes, setMenShoes, kidsWear, setKidsWear, kidsTop, setKidsTop, kidsBottom, setKidsBottom, kidsShoes, setKidsShoes,   singleProducts, setSingleProduct, addComment, setAddComment, showInputComment, setShowInputComment, comment, setCommment, productID, setProductID, searchArray, setSearchArray}}>
         <Navbar />
 
         <Routes>
@@ -73,7 +75,7 @@ function App() {
           <Route path = "/womensWear" element = {<Women />} />
           <Route path = "/kidswear" element = {<Kids />} />
           <Route path = "/product" element = {<Product />} />
-
+          <Route path = "/search" element = {<Search />} />
 
         </Routes>
 

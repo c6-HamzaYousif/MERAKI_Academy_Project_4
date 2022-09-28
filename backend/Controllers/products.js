@@ -85,4 +85,24 @@ const getProductById = (req, res) => {
     })
 }
 
-module.exports = {addProduct, updateProduct, deleteProduct, getAllProducts, getProductById};
+const getProductByName = (req, res) => {
+    const search = req.params.name;
+    const myRegex = new RegExp(search, 'gi');
+
+    productsModel.find({ name: { $regex: myRegex} })
+    .populate("comments")
+    .exec()
+    .then((result) => {
+        if(result.length === 0){
+            res.status(201).json("No items matched your search");
+        }else{
+            res.status(201).json(result);
+        }
+    })
+    .catch((err) => {
+        res.status(404).json(err.message)
+    })
+
+}
+
+module.exports = {addProduct, updateProduct, deleteProduct, getAllProducts, getProductById, getProductByName};
