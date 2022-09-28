@@ -12,13 +12,19 @@ const Navbar = () => {
     const showTheProduct = useContext(NewContext).show;
     const setShowTheProduct = useContext(NewContext).setShow;
     const setSearchArray = useContext(NewContext).setSearchArray;
+    const searchArray = useContext(NewContext).searchArray;
     const [searchValue, setSearchValue] = useState('')
     
     const searchFunction = () => {
       axios.get(`http://localhost:5000/products/search/${searchValue}`)
       .then((result) => {
         console.log(result.data);
-        setSearchArray(result.data)
+        if ((result.data).constructor == Array){
+          setSearchArray(result.data)
+        }else{
+          setSearchArray([])
+        }
+        console.log(searchArray);
         navigate("/search")
       })
       .catch((err) => {

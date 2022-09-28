@@ -11,6 +11,7 @@ import Women from "./components/Women";
 import Kids from "./components/Kids";
 import Product from "./components/Product";
 import Search from "./components/Search";
+import Cart from "./components/Cart";
 
 export const NewContext = createContext();
 
@@ -76,6 +77,7 @@ function App() {
           <Route path = "/kidswear" element = {<Kids />} />
           <Route path = "/product" element = {<Product />} />
           <Route path = "/search" element = {<Search />} />
+          <Route path = "/cart" element = {<Cart />} />
 
         </Routes>
 

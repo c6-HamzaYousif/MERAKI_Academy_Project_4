@@ -212,7 +212,7 @@ const Home = () => {
             
 
 
-                <div>
+                <div className="box-div">
                 {kidsTop.map((elem, i) => {
                     return(
                        <div className="porduct" key={i}>
@@ -228,7 +228,7 @@ const Home = () => {
                     )
                 }) }
                 </div>
-                <div>
+                <div className="box-div">
                 {kidsBottom.map((elem, i) => {
                     return(
                        <div className="porduct"  key={i}>
@@ -244,7 +244,7 @@ const Home = () => {
                     )
                 }) }
                 </div>
-                <div>
+                <div className="box-div">
                 {kidsShoes.map((elem, i) => {
                     return(
                        <div className="porduct"  key={i}>
@@ -267,7 +267,7 @@ const Home = () => {
             return (
                 <>
 
-                <div>
+                <div className="box-div">
                 {menTop.map((elem, i) => {
                     return(
                        <div className="porduct" key={i}>
@@ -283,7 +283,7 @@ const Home = () => {
                     )
                 }) }
                 </div>
-                <div>
+                <div className="box-div">
                 {menBottom.map((elem, i) => {
                     return(
                        <div className="porduct"  key={i}>
@@ -299,7 +299,7 @@ const Home = () => {
                     )
                 }) }
                 </div>
-                <div>
+                <div className="box-div">
                 {menShoes.map((elem, i) => {
                     return(
                        <div className="porduct"  key={i}>
@@ -320,7 +320,7 @@ const Home = () => {
             else if(gender === "female"){
                 return (
                     <>
-                    <div>
+                    <div className="box-div">
                     {womenTop.map((elem, i) => {
                         return(
                            <div className="porduct" key={i}>
@@ -336,7 +336,7 @@ const Home = () => {
                     }) }
                     </div>
             
-                    <div>
+                    <div className="box-div">
                     {womenBottom.map((elem, i) => {
                         return(
                            <div className="porduct" key={i}>
@@ -352,7 +352,7 @@ const Home = () => {
                     }) }
                     </div>
             
-                    <div>
+                    <div className="box-div">
                     {womenShoes.map((elem, i) => {
                         return(
                            <div className="porduct" key={i}>

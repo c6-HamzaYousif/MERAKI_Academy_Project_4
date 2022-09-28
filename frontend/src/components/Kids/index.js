@@ -48,7 +48,7 @@ if(!showTheProduct){
             
 
 
-                <div>
+                <div className="box-div">
                 {kidsTop.map((elem, i) => {
                     return(
                        <div className="porduct" key={i}>
@@ -64,7 +64,7 @@ if(!showTheProduct){
                     )
                 }) }
                 </div>
-                <div>
+                <div className="box-div">
                 {kidsBottom.map((elem, i) => {
                     return(
                        <div className="porduct"  key={i}>
@@ -80,7 +80,7 @@ if(!showTheProduct){
                     )
                 }) }
                 </div>
-                <div>
+                <div className="box-div">
                 {kidsShoes.map((elem, i) => {
                     return(
                        <div className="porduct"  key={i}>

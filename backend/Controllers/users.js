@@ -67,4 +67,5 @@ const login = (req, res) => {
     })
 }
 
+
 module.exports = {register, getAllUsers, login};

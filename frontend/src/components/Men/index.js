@@ -44,7 +44,7 @@ function Men() {
     return (
         <>
 
-                <div>
+                <div className="box-div">
                 {menTop.map((elem, i) => {
                     return(
                        <div className="porduct" key={i}>
@@ -60,7 +60,7 @@ function Men() {
                     )
                 }) }
                 </div>
-                <div>
+                <div className="box-div">
                 {menBottom.map((elem, i) => {
                     return(
                        <div className="porduct"  key={i}>
@@ -76,7 +76,7 @@ function Men() {
                     )
                 }) }
                 </div>
-                <div>
+                <div className="box-div">
                 {menShoes.map((elem, i) => {
                     return(
                        <div className="porduct"  key={i}>
