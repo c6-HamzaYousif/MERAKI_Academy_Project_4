@@ -1,43 +1,79 @@
 import "./style.css"
 import React, {useState, useEffect, useContext} from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { NewContext } from "../../App";
 import Kids from "../Kids";
 import Men from "../Men";
 import Women from "../Women";
+import Product from "../Product";
 
 const Home = () => {
+    
+
+
     const gender = useContext(NewContext).loggedInUserGender;
     const age = useContext(NewContext).loggedInUserAge;
     const showTheProduct = useContext(NewContext).show;
-    const setShowTheProduct = useContext(NewContext).setShow;
+    const setShowTheProduct = useContext(NewContext).setShow; 
     const loggerId = useContext(NewContext).loggedInUserId;
     const loggerName = useContext(NewContext).loggerFirstName;
     const profilePic = useContext(NewContext).profilePicture;
+    const navigate = useNavigate();
 
+    const [test, setTest] = useState(false);
+    // if(test){
+    //     navigate('/product')
+    // }
+    
+    const womenWear = useContext(NewContext).womenWear;
+    const setWomenWear = useContext(NewContext).setWomenWear;
+    const womenShoes = useContext(NewContext).womenShoes;
+    const setWomenShoes = useContext(NewContext).setWomenShoes;
+    const womenTop = useContext(NewContext).womenTop;
+    const setWomenTop = useContext(NewContext).setWomenTop;
+    const womenBottom = useContext(NewContext).womenBottom;
+    const setWomenBottom = useContext(NewContext).setWomenBottom;
 
+    const mensWear = useContext(NewContext).mensWear;
+    const setMenWear = useContext(NewContext).setMenWear;
+    const menTop = useContext(NewContext).menTop;
+    const setMenTop = useContext(NewContext).setMenTop;
+    const menBottom = useContext(NewContext).menBottom;
+    const setMenBottom = useContext(NewContext).setMenBottom;
+    const menShoes = useContext(NewContext).menShoes;
+    const setMenShoes = useContext(NewContext).setMenShoes;
+
+    const kidsWear = useContext(NewContext).kidsWear;
+    const setKidsWear = useContext(NewContext).setKidsWear;
+    const kidsTop = useContext(NewContext).kidsTop;
+    const setKidsTop = useContext(NewContext).setKidsTop;
+    const kidsBottom = useContext(NewContext).kidsBottom;
+    const setKidsBottom = useContext(NewContext).setKidsBottom;
+    const kidsShoes = useContext(NewContext).kidsShoes;
+    const setKidsShoes = useContext(NewContext).setKidsShoes;
+    //------------------------------------------------------------
+    const productID = useContext(NewContext).productID;
+    const setProductID = useContext(NewContext).setProductID;
+
+    const singleProducts = useContext(NewContext).singleProducts;
+    const setSingleProduct = useContext(NewContext).setSingleProduct;
+
+    const addComment = useContext(NewContext).addComment;
+    const setAddComment = useContext(NewContext).setAddComment;
+
+    const showInputComment = useContext(NewContext).showInputComment;
+    const setShowInputComment = useContext(NewContext).setShowInputComment; 
+
+    const comment = useContext(NewContext).comment;
+    const setCommment = useContext(NewContext).setCommment;
 
     const[products, setProducts] = useState([]);
-    const[singleProducts, setSingleProduct] = useState([]);
-    const[addComment, setAddComment] = useState(false);
-    const [showInputComment, setShowInputComment] = useState(false);
-    const [comment, setCommment] = useState('')
-    const [productID, setProductID] = useState('')
-    
-    const[mensWear, setMenWear] = useState([]);
-    const[menTop, setMenTop] = useState([]);
-    const[menBottom, setMenBottom] = useState([]);
-    const[menShoes, setMenShoes] = useState([]);
-
-    const[womenWear, setWomenWear] = useState([]);
-    const[womenShoes, setWomenShoes] = useState([]);
-    const[womenTop, setWomenTop] = useState([]);
-    const[womenBottom, setWomenBottom] = useState([]);
-
-    const[kidsWear, setKidsWear] = useState([]);
-    const[kidsTop, setKidsTop] = useState([]);
-    const[kidsBottom, setKidsBottom] = useState([]);
-    const[kidsShoes, setKidsShoes] = useState([]);
+    // const[singleProducts, setSingleProduct] = useState([]);
+    // const[addComment, setAddComment] = useState(false);
+    // const [showInputComment, setShowInputComment] = useState(false);
+    // const [comment, setCommment] = useState('')
+    // const [productID, setProductID] = useState('')
 
 
     const getallProducts = () => {
@@ -131,9 +167,12 @@ const Home = () => {
         setProductID(selectedProductId);
         axios.get(`http://localhost:5000/products/${selectedProductId}`)
         .then((result) => {
-            console.log(result.data.product);
+            // console.log(result.data.product);
             setSingleProduct(result.data.product)
             setShowTheProduct(true)
+            navigate('/product')
+            console.log("whyy");
+
         })
         .catch((err) => {
             console.log("err");
@@ -171,7 +210,63 @@ const Home = () => {
 
     if(!showTheProduct){
         if(age <= 16){
-            <div>Kids</div>
+            return (
+                <>
+            <>
+            
+
+
+                <div>
+                {kidsTop.map((elem, i) => {
+                    return(
+                       <div className="porduct" key={i}>
+                        <h2 className="porduct-text">{elem.name}</h2>
+                        <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
+        
+                        <div className = "text-cart-container">
+                        <h2 className="porduct-text">{elem.price}</h2>
+                        <button>Add To Shopping Cart</button>
+                        {/* <svg xmlns="http://www.w3.org/2000/svg" width="160" height="16" fill="currentColor" class="bi bi-cart" ewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
+                        </div>
+                        </div> 
+                    )
+                }) }
+                </div>
+                <div>
+                {kidsBottom.map((elem, i) => {
+                    return(
+                       <div className="porduct"  key={i}>
+                        <h2 className="porduct-text">{elem.name}</h2>
+                        <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
+                        
+                        <div className = "text-cart-container">
+                        <h2 className="porduct-text">{elem.price}</h2>
+                        <button>Add To Shopping Cart</button>
+                        {/* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" ewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
+                        </div>
+                        </div> 
+                    )
+                }) }
+                </div>
+                <div>
+                {kidsShoes.map((elem, i) => {
+                    return(
+                       <div className="porduct"  key={i}>
+                        <h2 className="porduct-text">{elem.name}</h2>
+                        <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
+                        <div className = "text-cart-container">
+        
+                        <h2 className="porduct-text">{elem.price}</h2>
+                        <button>Add To Shopping Cart</button>
+                        {/* <svg xmlns= "http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" ewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
+                        </div>
+                        </div> 
+                    )
+                }) }
+                </div>
+                </>
+            </>
+            )
         }else if(gender === "male"){
             return (
                 <>
@@ -279,63 +374,64 @@ const Home = () => {
                     </>
                 )    }
     }else{
-        return (
-            <div className="big-container">
-                <div className="first-small-container">
-                     <img className="first-small-container-img" src={singleProducts[0].image} />
-                </div>
+        // return (
+            setTest(true);
+            // <div className="big-container">
+            //     <div className="first-small-container">
+            //          <img className="first-small-container-img" src={singleProducts[0].image} />
+            //     </div>
 
-             <div className="second-small-container">
-                <div className="first-baby">
-                    <h2>Product Name: {singleProducts[0].name}</h2>
-                    <h2>Available Sizes: 
-                    {singleProducts[0].size.map((elem, i) => {
-                        if(i<(singleProducts[0].size.length) - 1){
-                         return <span className = "prod-span" key={i}>{elem},</span>
-                     }else{
-                           return <span className = "prod-span" key={i}>{elem}</span>
-                     }
-                    })}
-                    </h2>
-                    <h2>Seasons: 
-                    {singleProducts[0].season.map((elem, i) => {
-                        return <span className = "prod-span" key={i}>{elem}</span>
-                 })}
-                 </h2>
-                 <h2>Price: {singleProducts[0].price}</h2>
-                </div>
-                <div className="second-baby">
+            //  <div className="second-small-container">
+            //     <div className="first-baby">
+            //         <h2>Product Name: {singleProducts[0].name}</h2>
+            //         <h2>Available Sizes: 
+            //         {singleProducts[0].size.map((elem, i) => {
+            //             if(i<(singleProducts[0].size.length) - 1){
+            //              return <span className = "prod-span" key={i}>{elem},</span>
+            //          }else{
+            //                return <span className = "prod-span" key={i}>{elem}</span>
+            //          }
+            //         })}
+            //         </h2>
+            //         <h2>Seasons: 
+            //         {singleProducts[0].season.map((elem, i) => {
+            //             return <span className = "prod-span" key={i}>{elem}</span>
+            //      })}
+            //      </h2>
+            //      <h2>Price: {singleProducts[0].price}</h2>
+            //     </div>
+            //     <div className="second-baby">
 
-                <button onClick={handleCommentButton}>Add a comment</button>
-                 <br/>
-                 {showInputComment && 
-                 <>
-                 <textarea onChange={(e) => {setCommment(e.target.value)}} placeholder="Type your opinion about this product" />
-                 <button onClick={handleSubmitComment}>Submit</button>
-                 <button onClick={() => {setShowInputComment(false)}}>Cancel</button>
-                 </>
-                 }
+            //     <button onClick={handleCommentButton}>Add a comment</button>
+            //      <br/>
+            //      {showInputComment && 
+            //      <>
+            //      <textarea onChange={(e) => {setCommment(e.target.value)}} placeholder="Type your opinion about this product" />
+            //      <button onClick={handleSubmitComment}>Submit</button>
+            //      <button onClick={() => {setShowInputComment(false)}}>Cancel</button>
+            //      </>
+            //      }
 
-                {singleProducts[0].comments.map((elem, i) => {
+            //     {singleProducts[0].comments.map((elem, i) => {
 
-                    return (
-                        <div className="comment-box">
-                        <div className="small-comment-box">
-                            <img className="comment-pic" src= {elem.image} />
-                            <h4 className = "comment-text-name">{elem.firstName}</h4>
-                        </div>
-                        <div >
-                            <h4 className = "comment-text-comment">{elem.comment}</h4>
-                        </div>    
-                    </div>
-                    )
-                 })}
+            //         return (
+            //             <div className="comment-box">
+            //             <div className="small-comment-box">
+            //                 <img className="comment-pic" src= {elem.image} />
+            //                 <h4 className = "comment-text-name">{elem.firstName}</h4>
+            //             </div>
+            //             <div >
+            //                 <h4 className = "comment-text-comment">{elem.comment}</h4>
+            //             </div>    
+            //         </div>
+            //         )
+            //      })}
 
-                </div>
-            </div>
+            //     </div>
+            // </div>
                 
-            </div>
-        )
+            // </div>
+        // )
     }
 
 }

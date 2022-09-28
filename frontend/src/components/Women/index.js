@@ -1,6 +1,44 @@
-import React from 'react';
+import "./style.css"
+import React, {useState, useEffect, useContext} from "react";
+import { NewContext } from "../../App";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-function Women({womenTop, womenBottom, womenShoes, showProduct}) {
+function Women() {
+    const navigate = useNavigate();
+    const womenWear = useContext(NewContext).womenWear;
+    const setWomenWear = useContext(NewContext).setWomenWear;
+    const womenShoes = useContext(NewContext).womenShoes;
+    const setWomenShoes = useContext(NewContext).setWomenShoes;
+    const womenTop = useContext(NewContext).womenTop;
+    const setWomenTop = useContext(NewContext).setWomenTop;
+    const womenBottom = useContext(NewContext).womenBottom;
+    const setWomenBottom = useContext(NewContext).setWomenBottom;
+    const setShowTheProduct = useContext(NewContext).setShow;
+    const setSingleProduct = useContext(NewContext).setSingleProduct;
+    const setProductID = useContext(NewContext).setProductID;
+    const showTheProduct = useContext(NewContext).show;
+
+
+    const showProduct = (e) => {
+        const selectedProductId = e.target.id;
+        setProductID(selectedProductId);
+        axios.get(`http://localhost:5000/products/${selectedProductId}`)
+        .then((result) => {
+            // console.log(result.data.product);
+            setSingleProduct(result.data.product)
+            setShowTheProduct(true)
+            navigate('/product')
+            console.log("whyy");
+    
+        })
+        .catch((err) => {
+            console.log("err");
+        })
+    }
+
+    if(!showTheProduct){
+
     return (
         <>
         <div>
@@ -8,7 +46,7 @@ function Women({womenTop, womenBottom, womenShoes, showProduct}) {
             return(
                <div className="porduct" key={i}>
                 <h2 className="porduct-text">{elem.name}</h2>
-                <img className="porductimg" src={elem.image} />
+                <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
                 <div className = "text-cart-container">
                 <h2 className="porduct-text">{elem.price}</h2>
                 <button>Add To Shopping Cart</button>
@@ -24,7 +62,7 @@ function Women({womenTop, womenBottom, womenShoes, showProduct}) {
             return(
                <div className="porduct" key={i}>
                 <h2 className="porduct-text">{elem.name}</h2>
-                <img className="porductimg" src={elem.image} />
+                <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
                 <div className = "text-cart-container"> 
                 <h2 className="porduct-text">{elem.price}</h2>
                 <button>Add To Shopping Cart</button>
@@ -40,7 +78,7 @@ function Women({womenTop, womenBottom, womenShoes, showProduct}) {
             return(
                <div className="porduct" key={i}>
                 <h2 className="porduct-text">{elem.name}</h2>
-                <img className="porductimg" src={elem.image} />
+                <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
                 <div className = "text-cart-container">
                 <h2 className="porduct-text">{elem.price}</h2>
                 <button>Add To Shopping Cart</button>
@@ -52,6 +90,7 @@ function Women({womenTop, womenBottom, womenShoes, showProduct}) {
         </div>
         </>
     )
+    }
 }
 
 export default Women;
