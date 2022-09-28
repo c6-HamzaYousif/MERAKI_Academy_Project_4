@@ -7,6 +7,28 @@ import { NewContext } from "../../App";
 const Search = () => {
     
     const searchArray = useContext(NewContext).searchArray;
+    const navigate = useNavigate();
+    const setShowTheProduct = useContext(NewContext).setShow;
+    const setSingleProduct = useContext(NewContext).setSingleProduct;
+    const setProductID = useContext(NewContext).setProductID;
+  
+
+    const showProduct = (e) => {
+        const selectedProductId = e.target.id;
+        setProductID(selectedProductId);
+        axios.get(`http://localhost:5000/products/${selectedProductId}`)
+        .then((result) => {
+            // console.log(result.data.product);
+            setSingleProduct(result.data.product)
+            setShowTheProduct(true)
+            navigate('/product')
+            console.log("whyy");
+
+        })
+        .catch((err) => {
+            console.log("err");
+        })
+    }
 
   return (
     <>
