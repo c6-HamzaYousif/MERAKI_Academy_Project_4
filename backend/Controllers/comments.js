@@ -25,4 +25,17 @@ const addComments = (req, res) => {
     })
 }
 
-module.exports = addComments;
+const getAllComments = (req, res) => {
+    const selectedProduct = req.params.id
+    productsModel.find({_id: selectedProduct})
+    .populate("comments")
+    .exec()
+    .then((result) => {
+        res.status(201).json(result);
+    })
+    .catch((err) => {
+        res.status(404).json("error")
+    })
+}
+
+module.exports = {addComments, getAllComments};

@@ -11,11 +11,28 @@ const Navbar = () => {
 
   return (
     <div className="nav-bar-container">
-        <img onClick={() => {setShowTheProduct(false)}} className="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSITfe6NzLz0D5QOrubCQDrAt4-HmS0eS_FIg&usqp=CAU"/>
-        <h4><span>Men</span><span>Women</span><span>Kids</span></h4>
-        <input placeholder="Search for an item or a category"/>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className = "bi bi-cart2" viewBox="0 0 16 16"><path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/></svg>
-        <img className="profile-pic" src= {profilePic}/>
+      <div className="nav-1">
+          <img onClick={() => {setShowTheProduct(false)}} className="logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQMAAADCCAMAAAB6zFdcAAAAeFBMVEX///8AAACzs7NNTU3o6OjU1NT5+fnr6+vg4OD29varq6vd3d1sbGyKiorZ2dlZWVmEhISjo6PMzMyampqRkZG9vb15eXk/Pz9ERESxsbFlZWVxcXEyMjKXl5elpaVISEgNDQ1fX18kJCQvLy8XFxceHh5RUVExMTEgnwQbAAAEeElEQVR4nO3a65qqIBQG4DAPmVpmaqV2btr3f4db0SYOdpqmCOd7/8Vmng1LhAXY6wEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD8Le4kjlS3QTGHlMaqW6HWtooBWaluhlI0BGStuhlK1THoq26GUj6NgaG6GUrZ/TIEU9WtUM0ZqG4BwIcwVTdAvZAgCGvy1/cLvd7mj2cHFUImqpvwPlHitJS6hARttQeJ9eL2vN+ItCeEA0L8lurHsvZMKLNf0a7XsTNC5h5bUm+O5Jwwat01prR2zBatiGZvTZ/2gRn7Vh2DoVTTKEvlv69rz5mShFwYSJ/KJeJzHNUlC6nq8koM2C11Vhf9fltfxakbHDJFB3FkNNLW0pjWZof+WLcYNM8xYUrMTeswoJNfywpQPfYjW7Akup08Vm85yfiy9rVxc+EIxTP4yNgXxtEHi3L/rvTPlub/S9wgi93nGvWhvCoGW9WteCd5aaRL3kYqdhOpSFMrIadZyOt7QF9zaYz74gIQ6rq5nBEuVSxjsBOr1MmU2EFHXASNtiVFCwaX6dG82BOqkNb0bynEwNYqMeDxKUK1PxL2iE36KC77hBTc75wsX9G8txCepyMlelPSlv4lQn40apkxtOEKa7+QO/Z68yYG/IRQThI5+/sf/1MzOZ/aiderzb6CkJQtLV8Z7p0ZytOITkb8qD4Im4PJKQbcy+Dzs6Qtn6bopeBG/77s3Z751+8QsEtfNQzYLxJy8QXSjcFlQHt+IVycY8AMhFn185xRRnrtmNtwK1/d3dPb4DIhOE8A9VIxZP+m9dBVIwHboaa/zQw3Z2NwqlSfmZ2PT6rJQfeLKJPp9PeDj82enewIb1uODy9tfpyOoAxxKdES3RHUU8KI3K1ZCehf6D0jVujgPtC7gfR6vzl00qCDSPcZsUL7cYh6dvxACOjTr+eG8PZ/8fEe67qsC9/qmM+FoLj9P2ig/1QM5PM3HSVPxUCzm9ZLnglB26W0joInYqDrWapo8EQMVLf918x+HIK7rqC0YPw4Brpvlxg/DYHeB0i8R3YKrC59tudJD9gPpkYSWaNByRtZkTGM0/GXWE11u39Vce59aHiX8x4nmvib77o6H6nL6llxE9y13DtG8/VRxz5RrJ7q6IH6yZrIN7SaS1LuusyMFtMwH69nu6/dvpj3szRYJRb3qc0g68KuuZUbLbfS3Pftn7/q2AsgMZdsyngo+tvM97NsPOMOWI9Dfa9Yb7Gak4TDNlhEA3FxcL1kFR6bMPgdShBZNFHaxdH1h+wkIY2CVt8m36vq2p3TnDXvWI54QoQr9qvWXTlI5BHpy9UrCiJ8y9QN1RfHx/vSpKi6oNb/eqkFPVLbL2+s/3YU0A2Drh/j3WA1N81FOokG8urgjpJp3qRPmVZfZz/ECw7nVGi3ztIwiOM4TPMxexFfTLsbAco0woJctg6S7iaJHDMaxvn2nCFvqjExNayOP38AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC46j+/Jyc0VEgavgAAAABJRU5ErkJggg=="/>
+      </div>
+
+      <div className="nav-2">
+         <h4 className="nav-bar-text"><span>Men</span><span>Women</span><span>Kids</span></h4>
+      </div>
+
+      <div className="nav-3">
+          <input className="nav-input" placeholder="Search for an item or a category"/>
+          <svg className="nav-svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+      </div>
+
+      <div className="nav-4">
+         <span className="text-cart">0</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+          {/* <img className="nav-cart" src="https://media.istockphoto.com/vectors/shopping-cart-black-icon-on-white-background-vector-illustration-for-vector-id1079804618?k=20&m=1079804618&s=612x612&w=0&h=bwUh2mLL5T-fzrdPN6fwlB3BBBDoa1n2GDvQW-7FskM=" /> */}
+      </div>
+
+      <div className="nav-5">
+      <img className="profile-pic" src= {profilePic}/>
+      </div>
     </div>
   )
 

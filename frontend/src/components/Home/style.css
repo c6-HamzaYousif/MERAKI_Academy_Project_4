@@ -5,6 +5,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 100px;
+
 }
 
 .porduct-text{
@@ -26,11 +28,11 @@
     height: 100px;
 } */
 
-svg{
+/* svg{
     color: blue;
     height: 100px;
     width: 100px;
-}
+} */
 
 .prod-span{
     margin: 0 10px 0 10px;
