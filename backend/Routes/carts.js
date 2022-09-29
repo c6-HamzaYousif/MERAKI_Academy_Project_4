@@ -7,7 +7,7 @@ const authurization = require('../middlewares/authorization');
 
 cartsRouter.post('/add',authentication, authurization("add-to-cart"), addToCart);
 cartsRouter.delete('/delete/:id',authentication, authurization("remove-from-cart"), deleteCart);
-cartsRouter.delete('/:id',authentication, authurization("show-carts"), getAllCarts);
+cartsRouter.get('/:id',authentication, authurization("show-carts"), getAllCarts);
 
 
 module.exports = cartsRouter;

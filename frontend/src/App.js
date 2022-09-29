@@ -43,15 +43,15 @@ function App() {
   const[addComment, setAddComment] = useState(false);
   const [showInputComment, setShowInputComment] = useState(false);
   const [comment, setCommment] = useState('')
-  const [productID, setProductID] = useState('')
- 
+  const [productID, setProductID] = useState('');
+  const [cart, setCart] = useState([])
   localStorage.setItem("theToken", token)
   const theToken = localStorage.getItem("theToken")
 
   if(!isLoggedIn){
     return (
     
-      <NewContext.Provider value={{setToken, setIsLoggedIn, setProfilePicture, setLoggedInUserGender, setLoggedInUserAge, setLoggedInUserId, setLoggerFirstName}}>
+      <NewContext.Provider value={{setToken, setIsLoggedIn, setProfilePicture, setLoggedInUserGender, setLoggedInUserAge, setLoggedInUserId, setLoggerFirstName, cart}}>
       <div className="App">
       <Routes>
         <Route path = "/" element = {<Login />} />
@@ -66,7 +66,7 @@ function App() {
   }else{
     return(
 
-      <NewContext.Provider value={{profilePicture, loggedInUserGender, loggedInUserAge, setShow, show, loggedInUserId, loggerFirstName, setWomenWear, womenShoes, setWomenShoes, womenTop, setWomenTop, womenBottom, setWomenBottom, womenWear, mensWear, setMenWear, menTop, setMenTop, menBottom, setMenBottom, menShoes, setMenShoes, kidsWear, setKidsWear, kidsTop, setKidsTop, kidsBottom, setKidsBottom, kidsShoes, setKidsShoes,   singleProducts, setSingleProduct, addComment, setAddComment, showInputComment, setShowInputComment, comment, setCommment, productID, setProductID, searchArray, setSearchArray}}>
+      <NewContext.Provider value={{profilePicture, loggedInUserGender, loggedInUserAge, setShow, show, loggedInUserId, loggerFirstName, setWomenWear, womenShoes, setWomenShoes, womenTop, setWomenTop, womenBottom, setWomenBottom, womenWear, mensWear, setMenWear, menTop, setMenTop, menBottom, setMenBottom, menShoes, setMenShoes, kidsWear, setKidsWear, kidsTop, setKidsTop, kidsBottom, setKidsBottom, kidsShoes, setKidsShoes,   singleProducts, setSingleProduct, addComment, setAddComment, showInputComment, setShowInputComment, comment, setCommment, productID, setProductID, searchArray, setSearchArray, theToken, setCart, cart}}>
         <Navbar />
 
         <Routes>
