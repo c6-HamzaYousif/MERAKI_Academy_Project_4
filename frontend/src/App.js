@@ -45,6 +45,7 @@ function App() {
   const [comment, setCommment] = useState('')
   const [productID, setProductID] = useState('');
   const [cart, setCart] = useState([])
+  const [cartItems, setCartitems] = useState([]);
   localStorage.setItem("theToken", token)
   const theToken = localStorage.getItem("theToken")
 
@@ -66,7 +67,7 @@ function App() {
   }else{
     return(
 
-      <NewContext.Provider value={{profilePicture, loggedInUserGender, loggedInUserAge, setShow, show, loggedInUserId, loggerFirstName, setWomenWear, womenShoes, setWomenShoes, womenTop, setWomenTop, womenBottom, setWomenBottom, womenWear, mensWear, setMenWear, menTop, setMenTop, menBottom, setMenBottom, menShoes, setMenShoes, kidsWear, setKidsWear, kidsTop, setKidsTop, kidsBottom, setKidsBottom, kidsShoes, setKidsShoes,   singleProducts, setSingleProduct, addComment, setAddComment, showInputComment, setShowInputComment, comment, setCommment, productID, setProductID, searchArray, setSearchArray, theToken, setCart, cart}}>
+      <NewContext.Provider value={{profilePicture, loggedInUserGender, loggedInUserAge, setShow, show, loggedInUserId, loggerFirstName, setWomenWear, womenShoes, setWomenShoes, womenTop, setWomenTop, womenBottom, setWomenBottom, womenWear, mensWear, setMenWear, menTop, setMenTop, menBottom, setMenBottom, menShoes, setMenShoes, kidsWear, setKidsWear, kidsTop, setKidsTop, kidsBottom, setKidsBottom, kidsShoes, setKidsShoes,   singleProducts, setSingleProduct, addComment, setAddComment, showInputComment, setShowInputComment, comment, setCommment, productID, setProductID, searchArray, setSearchArray, theToken, setCart, cart, cartItems, setCartitems}}>
         <Navbar />
 
         <Routes>
@@ -89,3 +90,7 @@ function App() {
 }
 
 export default App;
+
+
+
+

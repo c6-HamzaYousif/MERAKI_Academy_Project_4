@@ -69,6 +69,9 @@ const Home = () => {
     const userToken = useContext(NewContext).theToken;
     const setCart = useContext(NewContext).setCart;
     const cart = useContext(NewContext).cart;
+    const cartItems = useContext(NewContext).cartItems;
+    const setCartitems = useContext(NewContext).setCartitems;
+    const [counter, setCounter] = useState(0)
 
 
 
@@ -215,15 +218,14 @@ const Home = () => {
 
         axios.post('http://localhost:5000/carts/add', {
             items: e.target.className,
-            user: loggerId
+            user: loggerId,
         }, {
             headers: {
               authorization: "Bearer " + userToken,
             },
           })
         .then((result) => {
-            console.log(result.data.product);
-            setCart([...cart, result.data.product])
+            setCartitems([...cartItems, result.data.product])
         })
         .catch((err) => {
             console.log(err);

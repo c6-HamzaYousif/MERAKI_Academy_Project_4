@@ -8,7 +8,6 @@ const authentication = (req, res, next) => {
             res.status(404).json("Forbidden")
         }
         else{
-            console.log(result);
             req.token = result;
             next()
         }
