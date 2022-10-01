@@ -51,6 +51,46 @@ const Cart = () => {
           })
     }
 
+    const addOne = (e) => {
+        const selectedCart = e.target.className;
+        console.log(selectedCart);
+        axios.put(`http://localhost:5000/carts/addOne/${selectedCart}`,{
+            headers: {
+              authorization: "Bearer " + userToken,
+            },
+          })
+        .then((result) => {
+            console.log(result);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }
+    const removeOne = (e) => {
+        const selectedCart = e.target.className;
+        axios.put(`http://localhost:5000/carts/removeOne/${selectedCart}`,{}, {
+            headers: {
+              authorization: "Bearer " + userToken,
+            },
+          })
+        .then((result) => {
+            console.log(result);
+        })
+        .catch((err) => {
+            console.log("err");
+        })
+    }
+    let x = ""
+    const test = (e) => {
+        // console.log(e.target.nextSibling);
+        x = e.target.nextSibling
+        console.log(x);
+        x.split('>')
+        console.log(x);
+
+    }
+    
+
   return (
     <div className='cartt'>
         <div className="cart-header">
@@ -69,10 +109,10 @@ const Cart = () => {
                     </div>
                     <h4 className="single-line-big">{elem.items.name}</h4>
                     <div className="arrow-quantity">
-                        <h4 className="arrow">&lt;</h4>
+                        <h4 onClick={test} className = {elem._id}>&lt;</h4>
                         {/* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/></svg> */}
                         <h4 className="counterr">{elem.counter}</h4>
-                        <h4 className="arrow">&gt;</h4>
+                        <h4 onClick={test} className = {elem._id}>&gt;</h4>
                         {/* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/></svg> */}
                     </div>
                     <h4 className="single-line-small">{elem.items.price * elem.counter} JOD</h4>

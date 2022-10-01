@@ -91,5 +91,74 @@ const getAllCarts = (req, res) => {
     })
 }
 
-module.exports = {addToCart, deleteCart, getAllCarts};
+const addOneToCart = (req, res) => {
+    const selectedCart = req.params.id;
+    cartsModel.find({ notInSchema: { _id: selectedCart } })
+    .then((result) => {
+        console.log("after find", result);
+        const items = result[0].items;
+        const user = result[0].user;
+        const newCounter = result[0].counter + 1;
+        cartsModel.findOneAndUpdate({ notInSchema: { _id: selectedCart } }, {items, user, counter: newCounter})
+        .then((result) => {
+            console.log("after update", result);
+
+            const successObject = {
+                success: true,
+                message: "updated carts",
+                product: result
+            }
+            res.status(201).json(successObject);
+        })
+        .catch((err) => {
+            res.status(401).json(err.message)
+        })
+    })
+    .catch((err) => {
+        res.status(401).json(err.message)
+    })
+}
+
+const removeOneFromCart = (req, res) => {
+    const selectedCart = req.params.id;
+    cartsModel.find({ notInSchema: { _id: selectedCart } } )
+    .then((result) => {
+        console.log("after find", result);
+        // console.log("hell");
+        const items = result[0].items;
+        const user = result[0].user;
+        const newCounter = result[0].counter - 1;
+        cartsModel.findOneAndUpdate({ notInSchema: { _id: selectedCart } }, {items, user, counter: newCounter})
+        .then((result) => {
+            console.log("after update", result);
+            const successObject = {
+                success: true,
+                message: "updated carts",
+                product: result
+            }
+            res.status(201).json(successObject);
+        })
+        .catch((err) => {
+            res.status(401).json(err.message)
+        })
+    })
+    .catch((err) => {
+        res.status(401).json(err.message)
+    })
+}
+
+const changeQuantity = (req, res) => {
+    const selectedCart = req.params.id;
+    const {items, user, counter} = req.body;
+    cartsModel.findOneAndUpdate({ notInSchema: { _id: selectedCart } } ,{items, user, counter}, {new: true})
+    .then((result)=>{
+        console.log(result);
+        res.json((result))
+    })
+    .catch((err) => {
+        res.json(err)
+    })
+}
+
+module.exports = {addToCart, deleteCart, getAllCarts, addOneToCart, removeOneFromCart, changeQuantity};
 
