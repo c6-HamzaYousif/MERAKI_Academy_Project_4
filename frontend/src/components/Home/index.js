@@ -232,170 +232,379 @@ const Home = () => {
             console.log(err);
         })
     }
+            //------------------------------PAGINATION WOMEN TOP-------------------------------\\
+
+
+            const [WomenTopNumber, setWomenTopNumber] = useState(0) 
+            const WomenTopPerPage = 4;
+            const WomenTopVisited = WomenTopNumber * WomenTopPerPage;
+            const displayWomenTop = womenTop.slice(WomenTopVisited, WomenTopVisited + WomenTopPerPage).map((elem, i) => {
+              return(
+                  <div className="porduct" key={i}>
+                  <h2 className="porduct-text">{elem.name}</h2>
+                  <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
+          
+                  <div className = "text-cart-container">
+                  <h2 className="porduct-text">{elem.price} JOD</h2>
+                  <button className={elem._id} onClick={AddToCart}>Add To Shopping Cart</button>
+                  {/* <svg xmlns="http://www.w3.org/2000/svg" width="160" height="16" fill="currentColor" class="bi bi-cart" ewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
+                  </div>
+                  </div> 
+              )
+            })
+            const WomenTopCount = Math.ceil(womenTop.length / WomenTopPerPage);
+            const changeWomenTop = ({selected}) => {
+              setWomenTopNumber(selected);
+            }
+    
+          //------------------------------PAGINATION WOMEN BOTTOM-------------------------------\\
+          const [WomenBottomNumber, setWomenBottomNumber] = useState(0) 
+          const WomenBottomPerPage = 4;
+          const WomenBottomVisited = WomenBottomNumber * WomenBottomPerPage;
+          const displayWomenBottom = womenBottom.slice(WomenBottomVisited, WomenBottomVisited + WomenBottomPerPage).map((elem, i) => {
+            return(
+                <div className="porduct" key={i}>
+                <h2 className="porduct-text">{elem.name}</h2>
+                <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
+        
+                <div className = "text-cart-container">
+                <h2 className="porduct-text">{elem.price} JOD</h2>
+                <button className={elem._id} onClick={AddToCart}>Add To Shopping Cart</button>
+                {/* <svg xmlns="http://www.w3.org/2000/svg" width="160" height="16" fill="currentColor" class="bi bi-cart" ewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
+                </div>
+                </div> 
+            )
+          })
+          const WomenBottomCount = Math.ceil(womenBottom.length / WomenBottomPerPage);
+          const changeWomenBottom = ({selected}) => {
+            setWomenBottomNumber(selected);
+          }
+    
+    
+                //------------------------------PAGINATION WOMEN SHOES-------------------------------\\
+                const [WomenShoesNumber, setWomenShoesNumber] = useState(0) 
+                const WomenShoesPerPage = 4;
+                const WomenShoesVisited = WomenShoesNumber * WomenShoesPerPage;
+                const displayWomenShoes = womenShoes.slice(WomenShoesVisited, WomenShoesVisited + WomenShoesPerPage).map((elem, i) => {
+                  return(
+                      <div className="porduct" key={i}>
+                      <h2 className="porduct-text">{elem.name}</h2>
+                      <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
+              
+                      <div className = "text-cart-container">
+                      <h2 className="porduct-text">{elem.price} JOD</h2>
+                      <button className={elem._id} onClick={AddToCart}>Add To Shopping Cart</button>
+                      {/* <svg xmlns="http://www.w3.org/2000/svg" width="160" height="16" fill="currentColor" class="bi bi-cart" ewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
+                      </div>
+                      </div> 
+                  )
+                })
+                const WomenShoesCount = Math.ceil(womenShoes.length / WomenShoesPerPage);
+                const changeWomenShoes = ({selected}) => {
+                  setWomenShoesNumber(selected);
+                }
+
+                        //------------------------------PAGINATION KIDS TOP-------------------------------\\
+
+
+        const [KidsTopNumber, setKidsTopNumber] = useState(0) 
+        const KidsTopPerPage = 4;
+        const KidsTopVisited = KidsTopNumber * KidsTopPerPage;
+        const displayKidsTop = kidsTop.slice(KidsTopVisited, KidsTopVisited + KidsTopPerPage).map((elem, i) => {
+          return(
+              <div className="porduct" key={i}>
+              <h2 className="porduct-text">{elem.name}</h2>
+              <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
+      
+              <div className = "text-cart-container">
+              <h2 className="porduct-text">{elem.price} JOD</h2>
+              <button className={elem._id} onClick={AddToCart}>Add To Shopping Cart</button>
+              {/* <svg xmlns="http://www.w3.org/2000/svg" width="160" height="16" fill="currentColor" class="bi bi-cart" ewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
+              </div>
+              </div> 
+          )
+        })
+        const KidsTopCount = Math.ceil(kidsTop.length / KidsTopPerPage);
+        const changeKidsTop = ({selected}) => {
+          setKidsTopNumber(selected);
+        }
+
+      //------------------------------PAGINATION KIDS BOTTOM-------------------------------\\
+      const [KidsBottomNumber, setKidsBottomNumber] = useState(0) 
+      const KidsBottomPerPage = 4;
+      const KidsBottomVisited = KidsBottomNumber * KidsBottomPerPage;
+      const displayKidsBottom = kidsBottom.slice(KidsBottomVisited, KidsBottomVisited + KidsBottomPerPage).map((elem, i) => {
+        return(
+            <div className="porduct" key={i}>
+            <h2 className="porduct-text">{elem.name}</h2>
+            <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
+    
+            <div className = "text-cart-container">
+            <h2 className="porduct-text">{elem.price} JOD</h2>
+            <button className={elem._id} onClick={AddToCart}>Add To Shopping Cart</button>
+            {/* <svg xmlns="http://www.w3.org/2000/svg" width="160" height="16" fill="currentColor" class="bi bi-cart" ewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
+            </div>
+            </div> 
+        )
+      })
+      const KidsBottomCount = Math.ceil(kidsBottom.length / KidsBottomPerPage);
+      const changeKidsBottom = ({selected}) => {
+        setKidsBottomNumber(selected);
+      }
+
+
+            //------------------------------PAGINATION KIDS SHOES-------------------------------\\
+            const [KidsShoesNumber, setKidsShoesNumber] = useState(0) 
+            const KidsShoesPerPage = 4;
+            const KidsShoesVisited = KidsShoesNumber * KidsShoesPerPage;
+            const displayKidsShoes = kidsShoes.slice(KidsShoesVisited, KidsShoesVisited + KidsShoesPerPage).map((elem, i) => {
+              return(
+                  <div className="porduct" key={i}>
+                  <h2 className="porduct-text">{elem.name}</h2>
+                  <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
+          
+                  <div className = "text-cart-container">
+                  <h2 className="porduct-text">{elem.price} JOD</h2>
+                  <button className={elem._id} onClick={AddToCart}>Add To Shopping Cart</button>
+                  {/* <svg xmlns="http://www.w3.org/2000/svg" width="160" height="16" fill="currentColor" class="bi bi-cart" ewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
+                  </div>
+                  </div> 
+              )
+            })
+            const KidsShoesCount = Math.ceil(kidsShoes.length / KidsShoesPerPage);
+            const changeKidsShoes = ({selected}) => {
+              setKidsShoesNumber(selected);
+            }
+
+         //------------------------------PAGINATION MEN TOP-------------------------------\\
+
+
+  const [itemNumber, setItemNumber] = useState(0)
+  const itemPerPage = 4;
+  const itemVisited = itemNumber * itemPerPage;
+  const displayMenTop = menTop.slice(itemVisited, itemVisited + itemPerPage).map((elem, i) => {
+    return(
+        <div className="porduct" key={i}>
+        <h2 className="porduct-text">{elem.name}</h2>
+        <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
+
+        <div className = "text-cart-container">
+        <h2 className="porduct-text">{elem.price} JOD</h2>
+        <button className={elem._id} onClick={AddToCart}>Add To Shopping Cart</button>
+        {/* <svg xmlns="http://www.w3.org/2000/svg" width="160" height="16" fill="currentColor" class="bi bi-cart" ewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
+        </div>
+        </div> 
+    )
+  })
+  const itemCount = Math.ceil(menTop.length / itemPerPage);
+  const changePage = ({selected}) => {
+    setItemNumber(selected);
+  }
+
+      //------------------------------PAGINATION MEN BOTTOM-------------------------------\\
+      const [menBottomNumber, setMenBottomNumber] = useState(0) 
+      const menBottomPerPage = 4;
+      const menBottomVisited = menBottomNumber * menBottomPerPage;
+      const displayMenBottom = menBottom.slice(menBottomVisited, menBottomVisited + menBottomPerPage).map((elem, i) => {
+        return(
+            <div className="porduct" key={i}>
+            <h2 className="porduct-text">{elem.name}</h2>
+            <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
+    
+            <div className = "text-cart-container">
+            <h2 className="porduct-text">{elem.price} JOD</h2>
+            <button className={elem._id} onClick={AddToCart}>Add To Shopping Cart</button>
+            {/* <svg xmlns="http://www.w3.org/2000/svg" width="160" height="16" fill="currentColor" class="bi bi-cart" ewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
+            </div>
+            </div> 
+        )
+      })
+      const menBottomCount = Math.ceil(menBottom.length / menBottomPerPage);
+      const changeMenBottom = ({selected}) => {
+        setMenBottomNumber(selected);
+      }
+
+
+            //------------------------------PAGINATION MEN SHOES-------------------------------\\
+            const [menShoesNumber, setMenShoesNumber] = useState(0) 
+            const menShoesPerPage = 4;
+            const menShoesVisited = menShoesNumber * menShoesPerPage;
+            const displayMenShoes = menShoes.slice(menShoesVisited, menShoesVisited + menShoesPerPage).map((elem, i) => {
+              return(
+                  <div className="porduct" key={i}>
+                  <h2 className="porduct-text">{elem.name}</h2>
+                  <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
+          
+                  <div className = "text-cart-container">
+                  <h2 className="porduct-text">{elem.price} JOD</h2>
+                  <button className={elem._id} onClick={AddToCart}>Add To Shopping Cart</button>
+                  {/* <svg xmlns="http://www.w3.org/2000/svg" width="160" height="16" fill="currentColor" class="bi bi-cart" ewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
+                  </div>
+                  </div> 
+              )
+            })
+            const menShoesCount = Math.ceil(menShoes.length / menShoesPerPage);
+            const changeMenShoes = ({selected}) => {
+              setMenShoesNumber(selected);
+            }
 
     if(!showTheProduct){
         if(age <= 16){
             return (
                 <>
-            <>
+                <div className="box-div">
+                    {displayKidsTop}
+                </div>
+                <ReactPaginate
+                                previousLabel = {<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/><path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>}
+                                nextLabel = {<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/><path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/></svg>}
+                                pageCount = {KidsTopCount}
+                                onPageChange={changeKidsTop}
+                                containerClassName={"container"}
+                                previousLinkClassName={"prev"}
+                                nextLinkClassName={"nxt"}
+                                disabledClassName={"dis"}
+                                activeClassName={"act"}
             
-
-                <div className="box-div">
-                {kidsTop.map((elem, i) => {
-                    return(
-                       <div className="porduct" key={i}>
-                        <h2 className="porduct-text">{elem.name}</h2>
-                        <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
+            />
         
-                        <div className = "text-cart-container">
-                        <h2 className="porduct-text">{elem.price}</h2> */}
-                        <button className={elem._id} onClick={AddToCart}>Add To Shopping Cart</button> */}
-                         {/* <svg xmlns="http://www.w3.org/2000/svg" width="160" height="16" fill="currentColor" class="bi bi-cart" ewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */} */}
-                         </div>
-                        </div> 
-                    )
-                }) }
-                </div>
                 <div className="box-div">
-                {kidsBottom.map((elem, i) => {
-                    return(
-                       <div className="porduct"  key={i}>
-                        <h2 className="porduct-text">{elem.name}</h2>
-                        <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
-                        
-                        <div className = "text-cart-container">
-                        <h2 className="porduct-text">{elem.price}</h2>
-                        <button className={elem._id} onClick={AddToCart}>Add To Shopping Cart</button>
-                         {/* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" ewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
-                        </div>
-                        </div> 
-                    )
-                }) }
+                {displayKidsBottom}
                 </div>
-                <div className="box-div">
-                {kidsShoes.map((elem, i) => {
-                    return(
-                       <div className="porduct"  key={i}>
-                        <h2 className="porduct-text">{elem.name}</h2>
-                        <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
-                        <div className = "text-cart-container">
+                <ReactPaginate
+                                previousLabel = {<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/><path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>}
+                                nextLabel = {<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/><path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/></svg>}
+                                pageCount = {KidsBottomCount}
+                                onPageChange={changeKidsBottom}
+                                containerClassName={"container"}
+                                previousLinkClassName={"prev"}
+                                nextLinkClassName={"nxt"}
+                                disabledClassName={"dis"}
+                                activeClassName={"act"}
+            
+            />
         
-                        <h2 className="porduct-text">{elem.price}</h2>
-                        <button className={elem._id} onClick={AddToCart}>Add To Shopping Cart</button>
-                        {/* <svg xmlns= "http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" ewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
-                        </div>
-                        </div> 
-                    )
-                }) }
+                <div className="box-div">
+                {displayKidsShoes}
                 </div>
+                <ReactPaginate
+                                previousLabel = {<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/><path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>}
+                                nextLabel = {<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/><path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/></svg>}
+                                pageCount = {KidsShoesCount}
+                                onPageChange={changeKidsShoes}
+                                containerClassName={"container"}
+                                previousLinkClassName={"prev"}
+                                nextLinkClassName={"nxt"}
+                                disabledClassName={"dis"}
+                                activeClassName={"act"}
+            
+            />
                 </>
-            </>
             )
         }else if(gender === "male"){
             return (
                 <>
 
                 <div className="box-div">
-                {menTop.map((elem, i) => {
-                    return(
-                       <div className="porduct" key={i}>
-                        <h2 className="porduct-text">{elem.name}</h2>
-                        <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
-        
-                        <div className = "text-cart-container">
-                        <h2 className="porduct-text">{elem.price}</h2>
-                        <button className={elem._id} onClick={AddToCart}>Add To Shopping Cart</button>
-                        {/* <svg xmlns="http://www.w3.org/2000/svg" width="160" height="16" fill="currentColor" class="bi bi-cart" ewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
-                        </div>
-                        </div> 
-                    )
-                }) }
+                    {displayMenTop}
+                   
                 </div>
+                <ReactPaginate
+                        previousLabel = {<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/><path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>}
+                        nextLabel = {<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/><path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/></svg>}
+                        pageCount = {itemCount}
+                        onPageChange={changePage}
+                        containerClassName={"container"}
+                        previousLinkClassName={"prev"}
+                        nextLinkClassName={"nxt"}
+                        disabledClassName={"dis"}
+                        activeClassName={"act"}
+    
+    />
                 <div className="box-div">
-                {menBottom.map((elem, i) => {
-                    return(
-                       <div className="porduct"  key={i}>
-                        <h2 className="porduct-text">{elem.name}</h2>
-                        <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
-                        
-                        <div className = "text-cart-container">
-                        <h2 className="porduct-text">{elem.price}</h2>
-                        <button className={elem._id} onClick={AddToCart}>Add To Shopping Cart</button>
-                        {/* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" ewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
-                        </div>
-                        </div> 
-                    )
-                }) }
+                 {displayMenBottom}
                 </div>
+                <ReactPaginate
+                        previousLabel = {<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/><path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>}
+                        nextLabel = {<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/><path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/></svg>}
+                        pageCount = {menBottomCount}
+                        onPageChange={changeMenBottom}
+                        containerClassName={"container"}
+                        previousLinkClassName={"prev"}
+                        nextLinkClassName={"nxt"}
+                        disabledClassName={"dis"}
+                        activeClassName={"act"}
+    
+    />
+
                 <div className="box-div">
-                {menShoes.map((elem, i) => {
-                    return(
-                       <div className="porduct"  key={i}>
-                        <h2 className="porduct-text">{elem.name}</h2>
-                        <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
-                        <div className = "text-cart-container">
-        
-                        <h2 className="porduct-text">{elem.price}</h2>
-                        <button className={elem._id} onClick={AddToCart}>Add To Shopping Cart</button>
-                        {/* <svg xmlns= "http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" ewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
-                        </div>
-                        </div> 
-                    )
-                }) }
+                    {displayMenShoes}
                 </div>
+                <ReactPaginate
+                        previousLabel = {<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/><path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>}
+                        nextLabel = {<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/><path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/></svg>}
+                        pageCount = {menShoesCount}
+                        onPageChange={changeMenShoes}
+                        containerClassName={"container"}
+                        previousLinkClassName={"prev"}
+                        nextLinkClassName={"nxt"}
+                        disabledClassName={"dis"}
+                        activeClassName={"act"}
+    
+    />
                 </>
             )        }
             else if(gender === "female"){
                 return (
                     <>
-                    <div className="box-div">
-                    {womenTop.map((elem, i) => {
-                        return(
-                           <div className="porduct" key={i}>
-                            <h2 className="porduct-text">{elem.name}</h2>
-                            <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
-                            <div className = "text-cart-container">
-                            <h2 className="porduct-text">{elem.price}</h2>
-                            <button className={elem._id} onClick={AddToCart}>Add To Shopping Cart</button>
-                            {/* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
-                            </div>
-                            </div> 
-                        )
-                    }) }
-                    </div>
-            
-                    <div className="box-div">
-                    {womenBottom.map((elem, i) => {
-                        return(
-                           <div className="porduct" key={i}>
-                            <h2 className="porduct-text">{elem.name}</h2>
-                            <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
-                            <div className = "text-cart-container"> 
-                            <h2 className="porduct-text">{elem.price}</h2>
-                            <button className={elem._id} onClick={AddToCart}>Add To Shopping Cart</button>
-                            {/* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
-                            </div>
-                            </div> 
-                        )
-                    }) }
-                    </div>
-            
-                    <div className="box-div">
-                    {womenShoes.map((elem, i) => {
-                        return(
-                           <div className="porduct" key={i}>
-                            <h2 className="porduct-text">{elem.name}</h2>
-                            <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
-                            <div className = "text-cart-container">
-                            <h2 className="porduct-text">{elem.price}</h2>
-                            <button className={elem._id} onClick={AddToCart}>Add To Shopping Cart</button>
-                            {/* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
-                            </div>
-                            </div> 
-                        )
-                    }) }
-                    </div>
-                    </>
+        <div className="box-div">
+            {displayWomenTop}
+        </div>
+        <ReactPaginate
+                        previousLabel = {<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/><path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>}
+                        nextLabel = {<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/><path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/></svg>}
+                        pageCount = {WomenTopCount}
+                        onPageChange={changeWomenTop}
+                        containerClassName={"container"}
+                        previousLinkClassName={"prev"}
+                        nextLinkClassName={"nxt"}
+                        disabledClassName={"dis"}
+                        activeClassName={"act"}
+    
+    />
+
+        <div className="box-div">
+        {displayWomenBottom}
+        </div>
+        <ReactPaginate
+                        previousLabel = {<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/><path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>}
+                        nextLabel = {<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/><path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/></svg>}
+                        pageCount = {WomenBottomCount}
+                        onPageChange={changeWomenBottom}
+                        containerClassName={"container"}
+                        previousLinkClassName={"prev"}
+                        nextLinkClassName={"nxt"}
+                        disabledClassName={"dis"}
+                        activeClassName={"act"}
+    
+    />
+
+        <div className="box-div">
+        {displayWomenShoes}
+        </div>
+        <ReactPaginate
+                        previousLabel = {<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/><path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>}
+                        nextLabel = {<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/><path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/></svg>}
+                        pageCount = {WomenShoesCount}
+                        onPageChange={changeWomenShoes}
+                        containerClassName={"container"}
+                        previousLinkClassName={"prev"}
+                        nextLinkClassName={"nxt"}
+                        disabledClassName={"dis"}
+                        activeClassName={"act"}
+    
+    />
+        </>
                 )    }
     }
 
