@@ -1,4 +1,5 @@
 const express = require('express');
+const { isObjectIdOrHexString } = require('mongoose');
 const cartsModel = require('../models/carts')
 
 // const addToCart = (req, res) => {
@@ -91,17 +92,20 @@ const getAllCarts = (req, res) => {
     })
 }
 
+//    cartsModel.find( { notInSchema: { _id: selectedCart } } )
+
 const addOneToCart = (req, res) => {
     const selectedCart = req.params.id;
-    cartsModel.find({ notInSchema: { _id: selectedCart } })
+    cartsModel.find(  { _id: selectedCart }  )
     .then((result) => {
         console.log("after find", result);
+
         const items = result[0].items;
         const user = result[0].user;
         const newCounter = result[0].counter + 1;
-        cartsModel.findOneAndUpdate({ notInSchema: { _id: selectedCart } }, {items, user, counter: newCounter})
+        cartsModel.findOneAndUpdate({ notInSchema: { _id: selectedCart } } , {items, user, counter: newCounter})
         .then((result) => {
-            console.log("after update", result);
+            // console.log("after update", result);
 
             const successObject = {
                 success: true,

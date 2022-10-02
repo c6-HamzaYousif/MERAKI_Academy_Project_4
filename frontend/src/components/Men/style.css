@@ -1,0 +1,59 @@
+/* container
+prev
+nxt
+dis
+act */
+
+.container{
+    list-style: none;
+    /* display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    justify-content: space-around; */
+    position: relative;
+    visibility: hidden;
+
+}
+
+.prev{
+    /* margin-top: 300px; */
+    /* margin-left: 123px; */
+    
+    position: absolute;
+    top: -300px;
+    /* left: -1px; */
+    /* color: white; */
+    opacity: 0.5;
+    visibility: visible;
+}
+.prev:hover{
+    opacity: 1;
+    cursor: pointer;
+    transform: scale(1.5);
+    transition: all ease 0.2s;
+
+}
+.nxt{
+
+    position: absolute;
+    top: -300px;
+    left: 1300px;
+    opacity: 0.5;
+    visibility: visible;
+
+}
+.nxt:hover{
+    opacity: 1;
+    cursor: pointer;
+    transform: scale(1.5);
+    transition: all ease 0.2s;
+
+}
+
+.act{
+    /* visibility: hidden; */
+}
+.dis{
+    /* visibility: hidden; */
+
+}
