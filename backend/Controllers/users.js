@@ -67,5 +67,9 @@ const login = (req, res) => {
     })
 }
 
+// const editProfile = (req, res) => {
+//     const selectedProfile = 
+// }
+
 
 module.exports = {register, getAllUsers, login};

@@ -32,7 +32,8 @@ const handleSubmitComment = () => {
         firstName: loggerName
     })
     .then((result) => {
-        console.log(result);
+        console.log(result.data.comment.comments);
+        console.log(singleProducts);
         setShowInputComment(false)
         // getallProducts()
     })

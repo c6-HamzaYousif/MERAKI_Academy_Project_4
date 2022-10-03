@@ -19,11 +19,21 @@
     width: 100px;
     height: 100px;
 }
+.nav-5{
+    position: fixed;
+    top: 20px;
+    right: 40px;
+}
 .profile-pic{
+    
     width: 60px;
     height: 60px;
     border-radius: 30px;
+    /* position: fixed; */
 
+}
+.profile-pic:hover{
+    cursor: pointer;
 }
 
 .nav-bar-text{
@@ -52,15 +62,19 @@ span{
 }
 .nav-3{
     width: 50%;
+    margin-top: -20px;
 }
 .nav-4{
     width: 10%;
 }
 .nav-4{
+    /* margin-top: 20px; */
     width: 10%;
-    display: flex;
-    flex-direction: column; 
+    position: relative;
+    /* display: flex;
+    flex-direction: column;  */
 }
+
 
 svg{
     width: 30px;
@@ -76,6 +90,9 @@ svg{
     margin-top: -20px;
 }
 .text-cart{
+    position: fixed;
+
+    /* left: 20px; */
     margin-left: 10px;
     /* margin-top: -40px; */
 }
@@ -83,3 +100,8 @@ svg{
 ::placeholder{
     text-align: center;
 }
+.toggle-div{
+    background-color: white;
+    padding: 10px;
+}
+

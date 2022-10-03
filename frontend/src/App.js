@@ -68,7 +68,7 @@ function App() {
   }else{
     return(
 
-      <NewContext.Provider value={{profilePicture, loggedInUserGender, loggedInUserAge, setShow, show, loggedInUserId, loggerFirstName, setWomenWear, womenShoes, setWomenShoes, womenTop, setWomenTop, womenBottom, setWomenBottom, womenWear, mensWear, setMenWear, menTop, setMenTop, menBottom, setMenBottom, menShoes, setMenShoes, kidsWear, setKidsWear, kidsTop, setKidsTop, kidsBottom, setKidsBottom, kidsShoes, setKidsShoes,   singleProducts, setSingleProduct, addComment, setAddComment, showInputComment, setShowInputComment, comment, setCommment, productID, setProductID, searchArray, setSearchArray, theToken, setCart, cart, cartItems, setCartitems}}>
+      <NewContext.Provider value={{setIsLoggedIn, profilePicture, loggedInUserGender, loggedInUserAge, setShow, show, loggedInUserId, loggerFirstName, setWomenWear, womenShoes, setWomenShoes, womenTop, setWomenTop, womenBottom, setWomenBottom, womenWear, mensWear, setMenWear, menTop, setMenTop, menBottom, setMenBottom, menShoes, setMenShoes, kidsWear, setKidsWear, kidsTop, setKidsTop, kidsBottom, setKidsBottom, kidsShoes, setKidsShoes,   singleProducts, setSingleProduct, addComment, setAddComment, showInputComment, setShowInputComment, comment, setCommment, productID, setProductID, searchArray, setSearchArray, theToken, setCart, cart, cartItems, setCartitems}}>
         <Navbar />
 
         <Routes>

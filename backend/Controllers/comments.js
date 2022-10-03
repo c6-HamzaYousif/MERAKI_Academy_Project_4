@@ -13,6 +13,7 @@ const addComments = (req, res) => {
             const successObject = {
                 success: true,
                 message: "Comment added successfully",
+                comment: result
             }
             res.status(201).json(successObject);
         })

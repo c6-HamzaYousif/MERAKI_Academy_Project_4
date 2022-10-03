@@ -44,7 +44,7 @@ const Order = () => {
               <h4>{elem.cart.items.name}</h4>
               <h4>{elem.createdAt.split('T')[0]}</h4>
               <h4>{elem.createdAt.split('T')[1].split('.')[0]}</h4>
-              <h4>{elem.cart.counter}</h4>
+              <h4>*{elem.cart.counter}</h4>
               <h4>{elem.cart.counter * elem.cart.items.price}</h4>
           </div>
         )
