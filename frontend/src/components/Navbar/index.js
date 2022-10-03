@@ -57,7 +57,7 @@ const Navbar = () => {
       </div>
 
       <div className="nav-5">
-      <img className="profile-pic" src= {profilePic}/>
+      <img onClick={() => {navigate('/orders')}} className="profile-pic" src= {profilePic}/>
       </div>
     </div>
   )

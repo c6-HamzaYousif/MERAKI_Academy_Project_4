@@ -1,0 +1,11 @@
+.order{
+    margin-top: 120px;
+}
+.order-header{
+    display: flex;
+    flex-direction: row;
+}
+.single-order{
+    display: flex;
+    flex-direction: row;
+}

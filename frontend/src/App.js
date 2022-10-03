@@ -12,6 +12,7 @@ import Kids from "./components/Kids";
 import Product from "./components/Product";
 import Search from "./components/Search";
 import Cart from "./components/Cart";
+import Order from "./components/Order";
 
 export const NewContext = createContext();
 
@@ -79,7 +80,7 @@ function App() {
           <Route path = "/product" element = {<Product />} />
           <Route path = "/search" element = {<Search />} />
           <Route path = "/cart" element = {<Cart />} />
-
+          <Route path="/orders" element = {<Order />} />
         </Routes>
 
       </NewContext.Provider>
