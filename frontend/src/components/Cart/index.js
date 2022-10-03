@@ -56,13 +56,14 @@ const Cart = () => {
     const addOne = (e) => {
         const selectedCart = e.target.className;
         console.log(selectedCart);
-        axios.put(`http://localhost:5000/carts/addOne/${selectedCart}`,{
+        axios.put(`http://localhost:5000/carts/addOne/${selectedCart}`,{},{
             headers: {
               authorization: "Bearer " + userToken,
             },
           })
         .then((result) => {
             console.log(result);
+            getCarts();
         })
         .catch((err) => {
             console.log(err);
@@ -77,10 +78,27 @@ const Cart = () => {
           })
         .then((result) => {
             console.log(result.data.product);
+            getCarts();
         })
         .catch((err) => {
             console.log("err");
         })
+    }
+    const confirmBuying = (e) => {
+      const selectedCart = e.target.className;
+      axios.put(`http://localhost:5000/carts//confirm/${selectedCart}`,{})
+      .then((result) => {
+        console.log(result);
+
+        const newCart = cartItems.filter((elem, i) => {
+          return elem._id !== selectedCart
+      })
+      console.log(newCart);
+      setCartitems(newCart);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
     }
 
 
@@ -100,6 +118,7 @@ const Cart = () => {
             <h4 className="cart-header-small">Quantity</h4>
             <h4 className="cart-header-small">Price</h4>
             <h4 className="cart-header-small">Remove</h4>
+            <h4 className="cart-header-small">Buying</h4>
         </div>
     {cartItems.map((elem, i) => {
         if(elem && !elem.isOrdered){
@@ -118,6 +137,7 @@ const Cart = () => {
                     </div>
                     <h4 className="single-line-small">{elem.items.price * elem.counter} JOD</h4>
                     <h4 className="x" onClick={deleteCart} id={elem._id}>X</h4>
+                    <button onClick={confirmBuying} className = {elem._id}>confirm buying</button>
                 </div>
             )
         }

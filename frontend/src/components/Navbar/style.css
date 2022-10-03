@@ -30,6 +30,9 @@
     font-size: 30px;
     font-family: 'Bebas Neue', cursive;
 }
+.nav-bar-text:hover{
+    cursor: pointer;
+}
 span{
     margin-right: 10px;
 }

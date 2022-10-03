@@ -11,7 +11,7 @@ const Register = () => {
   const [age, setAge] = useState('')
   const [city, setCity] = useState('')
   const [gender, setGender] = useState('')
-  const [image, setImage] = useState('')
+  const [image, setImage] = useState('https://thumbs.dreamstime.com/b/default-avatar-profile-icon-social-media-user-vector-default-avatar-profile-icon-social-media-user-vector-portrait-176194876.jpg')
   const [userResponse, setUserResponse] = useState('')
 
   const handleFirstName = (e) => {
@@ -33,7 +33,9 @@ const Register = () => {
     setCity(e.target.value)
   }
   const handleImage = (e) => {
-    setImage(e.target.value)
+    if(e.target.value){
+      setImage(e.target.value)
+    }
   }
   const handleGender = (e) => {
     setGender(e.target.value)

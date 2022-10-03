@@ -10,7 +10,7 @@ gender: {type: String},
 password: {type: String, required: true},
 age: {type: Number},
 city: {type: String, required: true},
-image: {type: String},
+image: {type: String, default:"https://thumbs.dreamstime.com/b/default-avatar-profile-icon-social-media-user-vector-default-avatar-profile-icon-social-media-user-vector-portrait-176194876.jpg"},
 role: { type: mongoose.Schema.Types.ObjectId, ref: "Role" }
 })
 
