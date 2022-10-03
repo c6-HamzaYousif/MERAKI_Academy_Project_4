@@ -54,9 +54,8 @@ const Navbar = () => {
     },[cartItems])
 
     const handleLogout = () => {
-
-      setIsLoggedIn(false)
       localStorage.clear();
+      setIsLoggedIn(false)
       navigate('/')
     }
     
@@ -88,9 +87,9 @@ const Navbar = () => {
     <div className="nav-5">
     <img onClick={() => {setToggle(!toggle)}} className="profile-pic" src= {profilePic}/>
     {toggle && <div className="toggle-div">
-      <h4 onClick={() => {navigate('/orders'); setToggle(!toggle)}}>My Orders</h4>
-      <h4>My Profile</h4>
-      <h4 onClick={handleLogout}>Logout</h4>
+      <h4  className="menu" onClick={() => {navigate('/orders'); setToggle(!toggle)}}>My Orders</h4>
+      <h4 className="menu">My Profile</h4>
+      <h4 className="menu" onClick={handleLogout}>Logout</h4>
     </div>}
     </div>
     </>

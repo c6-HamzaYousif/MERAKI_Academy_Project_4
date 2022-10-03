@@ -8,6 +8,7 @@ import {NewContext} from '../../App'
 
 const Login = () => {
   const setTokenValue = useContext(NewContext).setToken;
+  const token = useContext(NewContext).token;
   const setLogged = useContext(NewContext).setIsLoggedIn;
   const profilePic = useContext(NewContext).setProfilePicture;
   const setUserGender = useContext(NewContext).setLoggedInUserGender;
@@ -42,6 +43,9 @@ const Login = () => {
       profilePic(result.data.result[0].image);
       setUserAge(result.data.result[0].age);
       setTokenValue(result.data.token);
+      // console.log(result.data.token);
+      // console.log(token);
+      localStorage.setItem("theToken", token)
       setLoggerId(result.data.result[0]._id)
       loggerFN(result.data.result[0].firstName)
       setLogged(true);

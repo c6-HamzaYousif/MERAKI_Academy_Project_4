@@ -105,3 +105,6 @@ svg{
     padding: 10px;
 }
 
+.menu:hover{
+    cursor: pointer;
+}

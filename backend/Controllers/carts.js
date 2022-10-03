@@ -40,7 +40,7 @@ const addToCart = (req, res) => {
         res.status(404).json(err.message)
     })
         }else{
-            console.log(result);
+            // console.log(result);
             let x = result[0].counter + 1
             console.log(x);
             cartsModel.findOneAndUpdate({items: items}, {items, user, counter: x}, {new:true})
@@ -93,17 +93,14 @@ const getAllCarts = (req, res) => {
     })
 }
 
-//    cartsModel.find( { notInSchema: { _id: selectedCart } } )
 
 const addOneToCart = (req, res) => {
     const selectedCart = req.params.id;
     cartsModel.find(  { _id: selectedCart }  )
     .then((result) => {
-        console.log("after find", result);
         const items = result[0].items;
         const user = result[0].user;
         const newCounter = result[0].counter + 1;
-        console.log("newcounte", newCounter);
         cartsModel.findOneAndUpdate({ _id: selectedCart  } , {items, user, counter: newCounter})
         .then((result) => {
             console.log("after update", result);
@@ -128,15 +125,12 @@ const removeOneFromCart = (req, res) => {
     const selectedCart = req.params.id;
     cartsModel.find(  { _id: selectedCart }  )
     .then((result) => {
-        console.log("after find", result);
-        // console.log("hell");
         const items = result[0].items;
         const user = result[0].user;
         const newCounter = result[0].counter - 1;
         if(newCounter>0){
             cartsModel.findOneAndUpdate({ _id: selectedCart } , {items, user, counter: newCounter})
             .then((result) => {
-                console.log("after update", result);
                 const successObject = {
                     success: true,
                     message: "updated carts",

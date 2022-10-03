@@ -26,26 +26,31 @@ const Order = () => {
   return (
     <div className='order'>
       <div className="order-header">
-            <h4>Order Number</h4>
-            <h4>Product</h4>
-            <h4>Desciption</h4>
-            <h4>Quantity</h4>
-            <h4>Price</h4>
-            <h4>Order's date &amp;  time</h4>
+            <h4 className="or-head-sml">Order Number</h4>
+            <h4 className="or-head-med">Product</h4>
+            <h4 className="or-head-big">Desciption</h4>
+            <h4 className="or-head-sml">Quantity</h4>
+            <h4 className="or-head-sml">Price</h4>
+            <h4 className="or-head-med">Order's date</h4>
+            {/* <h4 className="or-head-med">Order's date &amp;  time</h4> */}
+
 
         </div>
       {orders && orders.map((elem, i) =>{
         return(
           <div className="single-order">
-            <h4>Order #{i+1} </h4>
-            <div>
-              <img src={elem.cart.items.image} />
+            <h4 className="or-head-sml">Order #{i+1} </h4>
+            <div className="or-head-med">
+              <img className="order-img" src={elem.cart.items.image} />
             </div>
-              <h4>{elem.cart.items.name}</h4>
-              <h4>{elem.createdAt.split('T')[0]}</h4>
-              <h4>{elem.createdAt.split('T')[1].split('.')[0]}</h4>
-              <h4>*{elem.cart.counter}</h4>
-              <h4>{elem.cart.counter * elem.cart.items.price}</h4>
+              <h4 className="or-head-big">{elem.cart.items.name}</h4>
+              <h4 className="or-head-sml">{elem.cart.counter}</h4>
+              <h4 className="or-head-sml">{elem.cart.counter * elem.cart.items.price} JOD</h4>
+              <div className="or-head-med">
+                <h4>{elem.createdAt.split('T')[0]}</h4>
+                 {/* <h4>{elem.createdAt.split('T')[1].split('.')[0]}</h4> */}
+              </div>
+              
           </div>
         )
       })}

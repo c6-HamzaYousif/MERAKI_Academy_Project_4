@@ -67,9 +67,22 @@ const login = (req, res) => {
     })
 }
 
-// const editProfile = (req, res) => {
-//     const selectedProfile = 
-// }
+const editProfile = (req, res) => {
+    const selectedProfile = req.params.id;
+    const {firstName, lastName, email, password, age, city, gender, image, role="6330aca8842611c737b59c50"} = req.body;
+    usersModel.findOneAndUpdate({_id: selectedProfile}, {firstName, lastName, email, password, age, city, gender, image, role}, {new:true})
+    .then((result) => {
+        const successObject = {
+            message: "Profile updated successfully",
+            success: true,
+            result: result
+        }
+        res.status(200).json(successObject)
+    })
+    .catch((err) => {
+        res.status(400).json(err.message);
+    })
+}
 
 
-module.exports = {register, getAllUsers, login};
+module.exports = {register, getAllUsers, login, editProfile};

@@ -13,6 +13,7 @@ import Product from "./components/Product";
 import Search from "./components/Search";
 import Cart from "./components/Cart";
 import Order from "./components/Order";
+import Footer from "./components/Footer";
 
 export const NewContext = createContext();
 
@@ -47,13 +48,13 @@ function App() {
   const [productID, setProductID] = useState('');
   const [cart, setCart] = useState([])
   const [cartItems, setCartitems] = useState([]);
-  localStorage.setItem("theToken", token)
+  // localStorage.setItem("theToken", token)
   const theToken = localStorage.getItem("theToken")
 
   if(!isLoggedIn){
     return (
     
-      <NewContext.Provider value={{setToken, setIsLoggedIn, setProfilePicture, setLoggedInUserGender, setLoggedInUserAge, setLoggedInUserId, setLoggerFirstName, cart}}>
+      <NewContext.Provider value={{token, setToken, setIsLoggedIn, setProfilePicture, setLoggedInUserGender, setLoggedInUserAge, setLoggedInUserId, setLoggerFirstName, cart}}>
       <div className="App">
       <Routes>
         <Route path = "/" element = {<Login />} />
@@ -82,6 +83,8 @@ function App() {
           <Route path = "/cart" element = {<Cart />} />
           <Route path="/orders" element = {<Order />} />
         </Routes>
+
+        <Footer />
 
       </NewContext.Provider>
 
