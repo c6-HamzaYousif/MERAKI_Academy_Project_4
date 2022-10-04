@@ -3,17 +3,20 @@ const commentsModel = require('../models/comments')
 const productsModel = require('../models/products')
 
 const addComments = (req, res) => {
+    let theChange = ''
     const selectedProduct = req.params.id
     const {comment, commenter, image, firstName} = req.body; 
     const commentInstance = new commentsModel({comment, commenter, image, firstName})
     .save()
     .then((result) => {
+        theChange = result;
         productsModel.findOneAndUpdate({_id: selectedProduct}, {$push: {comments: result._id }})
         .then((result) => {
             const successObject = {
                 success: true,
                 message: "Comment added successfully",
-                comment: result
+                comment: result,
+                newVal: theChange
             }
             res.status(201).json(successObject);
         })

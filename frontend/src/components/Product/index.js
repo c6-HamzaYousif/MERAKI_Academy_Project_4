@@ -22,9 +22,9 @@ const handleCommentButton = () => {
         setShowInputComment(true);
 }
 const handleSubmitComment = () => {
-    console.log(loggerId);
-    console.log(comment);
-    console.log(productID);
+    // console.log(loggerId);
+    // console.log(comment);
+    // console.log(productID);
     axios.post(`http://localhost:5000/comments/add/${productID}`, {
         comment: comment,
         commenter: loggerId,
@@ -32,8 +32,9 @@ const handleSubmitComment = () => {
         firstName: loggerName
     })
     .then((result) => {
-        console.log(result.data.comment.comments);
+        console.log(result.data.newVal);
         console.log(singleProducts);
+        singleProducts[0].comments.unshift(result.data.newVal)
         setShowInputComment(false)
         // getallProducts()
     })
