@@ -16,7 +16,17 @@ const register = (req, res) => {
         res.status(201).json(successObject)
     })
     .catch((err) => {
-        res.status(500).json(err.message)
+        if(!email){
+            res.status(500).json("Email field is required")
+        }
+        else if(!password){
+            res.status(500).json("Password field is required")
+        }
+        else if(!firstName){
+            res.status(500).json("First Name field is required")
+        }else{
+            res.status(500).json(err.message)
+        }
     })
 }
 
@@ -74,7 +84,7 @@ const editProfile = (req, res) => {
     .then((result) => {
         console.log(result);
         const successObject = {
-            message: "Profile updated successfully",
+            message: "Changes Have Been Saved",
             success: true,
             result: result
         }

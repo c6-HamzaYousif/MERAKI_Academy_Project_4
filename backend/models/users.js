@@ -4,12 +4,12 @@ const bcrypt = require('bcrypt')
 const usersSchema = new mongoose.Schema({
 
 firstName: {type: String, required: true},
-lastName: {type: String, required: true},
+lastName: {type: String},
 email: {type: String, required: true, unique: true, lowercase: true}, 
 gender: {type: String},
 password: {type: String, required: true},
 age: {type: Number},
-city: {type: String, required: true},
+city: {type: String},
 image: {type: String, default:"https://thumbs.dreamstime.com/b/default-avatar-profile-icon-social-media-user-vector-default-avatar-profile-icon-social-media-user-vector-portrait-176194876.jpg"},
 role: { type: mongoose.Schema.Types.ObjectId, ref: "Role" }
 })

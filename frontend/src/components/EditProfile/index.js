@@ -16,6 +16,8 @@ const EditProfile = () => {
     const profilePicture = useContext(NewContext).profilePicture;
     const loggedInUserGender = useContext(NewContext).loggedInUserGender;
     const loggedInUserAge = useContext(NewContext).loggedInUserAge;
+    const setIsLoggedIn = useContext(NewContext).setIsLoggedIn;
+
 
     const [e1, setE1] = useState(false)
     const [e2, setE2] = useState(false)
@@ -27,8 +29,9 @@ const EditProfile = () => {
     const [e7, setE7] = useState(false)
     const [e8, setE8] = useState(false)
 
-
+    
     const navigate = useNavigate();
+    const [responseToUser, SetResponseToUser] = useState('')
     const [email, setEmail] = useState(userEmail)
     const [password, setPassword] = useState(userPassword)
     const [firstName, setFirstName] = useState(loggerFirstName)
@@ -37,7 +40,6 @@ const EditProfile = () => {
     const [city, setCity] = useState(userCity)
     const [gender, setGender] = useState(loggedInUserGender)
     const [image, setImage] = useState(profilePicture)
-    // const [image, setImage] = useState('https://thumbs.dreamstime.com/b/default-avatar-profile-icon-social-media-user-vector-default-avatar-profile-icon-social-media-user-vector-portrait-176194876.jpg')
     const [userResponse, setUserResponse] = useState('')
   
     const handleFirstName = (e) => {
@@ -71,7 +73,13 @@ const EditProfile = () => {
             firstName , lastName, email, password, age, city, gender, image
         })
         .then((result) => {
-            console.log(result);
+            console.log(result.data.message);
+            SetResponseToUser(result.data.message);
+            setTimeout(() => {
+              localStorage.clear();
+              setIsLoggedIn(false)
+              navigate('/')
+            }, 3000)
         })
         .catch((err) => {
             console.log(err.message);
@@ -122,6 +130,9 @@ const EditProfile = () => {
       </div>
 
       <button onClick={handleButton}>Save Changes</button>
+      {responseToUser && 
+        <h4>{responseToUser}</h4>
+      }
     </div>
   )
 }

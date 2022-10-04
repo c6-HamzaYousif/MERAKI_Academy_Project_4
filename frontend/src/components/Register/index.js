@@ -14,6 +14,8 @@ const Register = () => {
   const [gender, setGender] = useState('')
   const [image, setImage] = useState('https://thumbs.dreamstime.com/b/default-avatar-profile-icon-social-media-user-vector-default-avatar-profile-icon-social-media-user-vector-portrait-176194876.jpg')
   const [userResponse, setUserResponse] = useState('')
+  const [errorResponse, setErrorResponse] = useState('')
+
 
   const handleFirstName = (e) => {
     setFirstName(e.target.value)
@@ -55,10 +57,13 @@ const Register = () => {
     })
     .then((result) => {
       console.log(result.data);
+      setErrorResponse('')
       setUserResponse(result.data.message)
     })
     .catch((err) => {
-      console.log(err.response);
+      console.log(err.response.data);
+      setErrorResponse(err.response.data)
+
     })
   }
   const handleBackButton = () => {
@@ -83,6 +88,7 @@ const Register = () => {
         <button className="regist-button" onClick={handleButton}>Register</button>
       } 
       <div className="response">{userResponse}</div>
+      <div className="response">{errorResponse}</div>
       {userResponse && 
       <button className="back" onClick={handleBackButton}>Back to login page</button>
       }
