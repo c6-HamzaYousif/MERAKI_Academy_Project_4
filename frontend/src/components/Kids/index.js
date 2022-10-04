@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import { NewContext } from "../../App";
+import Footer from "../Footer";
 
 
 
@@ -188,6 +189,8 @@ if(!showTheProduct){
                         activeClassName={"act"}
     
     />
+       
+        <Footer />
         </>
   )
               }

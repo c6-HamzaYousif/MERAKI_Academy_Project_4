@@ -1,0 +1,58 @@
+.fooot{
+    margin-left: 40px;
+}
+.foot-contain{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.facebook{
+    /* width: 15%; */
+    margin-left: 35px;
+    width: 40px;
+    height: 40px;
+    color: blue;
+
+
+}
+.twitter{
+    /* width: 15%; */
+    margin-left: 35px;
+    width: 40px;
+    height: 40px;
+    color: rgb(29, 161, 242);
+
+}
+.instagram{
+    /* width: 15%; */
+    margin-left: 35px;
+    width: 40px;
+    height: 40px;
+    color: rgb(64, 93, 230);
+    /* color: yellow; */
+
+}
+.snapchat{
+    /* width: 15%; */
+    margin-left: 35px;
+    width: 40px;
+    height: 40px;
+    color: yellow;
+    /* background-color: yellow; */
+}
+.first-text{
+    width: 25%;
+}
+.foot-textArea{
+    margin-left: 20px;
+    width: 20%;
+    height: 30px;
+    margin-top: 20px;
+}
+.ft-btn{
+    width: 100px;
+    height: 30px;
+    margin-left: 10px;
+    margin-top: 25px;
+    border-radius: 5px;
+}

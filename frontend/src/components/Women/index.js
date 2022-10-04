@@ -4,6 +4,8 @@ import { NewContext } from "../../App";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import ReactPaginate from "react-paginate";
+import Footer from "../Footer";
+
 
 function Women() {
     const navigate = useNavigate();
@@ -183,6 +185,8 @@ function Women() {
                         activeClassName={"act"}
     
     />
+            <Footer />
+
         </>
     )
     }

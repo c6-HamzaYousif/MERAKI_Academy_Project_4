@@ -3,6 +3,7 @@ import React, {useState, useEffect, useContext} from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import ReactPaginate from "react-paginate";
+import Footer from "../Footer";
 
 import { NewContext } from "../../App";
 
@@ -190,6 +191,8 @@ function Men() {
                         activeClassName={"act"}
     
     />
+            <Footer />
+
                 </>
     )
             }

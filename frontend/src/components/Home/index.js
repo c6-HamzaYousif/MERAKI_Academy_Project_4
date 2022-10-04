@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { NewContext } from "../../App";
 import ReactPaginate from "react-paginate";
+import Footer from "../Footer";
+
 import Kids from "../Kids";
 import Men from "../Men";
 import Women from "../Women";
@@ -497,6 +499,8 @@ const Home = () => {
                                 activeClassName={"act"}
             
             />
+                        <Footer />
+
                 </>
             )
         }else if(gender === "male"){
@@ -550,6 +554,8 @@ const Home = () => {
                         activeClassName={"act"}
     
     />
+                <Footer />
+
                 </>
             )        }
             else if(gender === "female"){
@@ -602,6 +608,8 @@ const Home = () => {
                         activeClassName={"act"}
     
     />
+            <Footer />
+
         </>
                 )    }
     }
