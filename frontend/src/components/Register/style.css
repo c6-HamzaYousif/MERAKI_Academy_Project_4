@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.test-regist{
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPFeD5xexxVp-OYe2ClyfcOk4tUJuqMmTmghaT3o8ko3K9Hs-Gdlf4P1hcnt2g3efTJd4&usqp=CAU);
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.regist-container{
+    font-family: 'Bebas Neue', cursive;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: auto;
+    margin-top: 50px;
+    background-color: white;
+    height: 550px;
+    border-radius: 20px;
+}
+.regist-header{
+    font-size: 30px;
+}
+.regist-input{
+    width: 70%;
+    align-self: center;
+    margin-bottom: 20px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px grey solid;
+}
+.regist-button{
+    width: 30%;
+    height: 40px;
+    align-self: center; 
+    margin-left: 15px;
+    /* margin-top: 15px; */
+    border-radius: 20px;
+    background-color: burlywood;
+}
+.response{
+    margin-top: 10px;
+    color: red;
+    font-size: 25px;
+}
+.back{
+    width: 30%;
+    height: 40px;
+    align-self: center; 
+    margin-left: 15px;
+    margin-top: 15px;
+    border-radius: 20px;
+    background-color: burlywood;
+}

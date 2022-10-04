@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import "./style.css"
 import { Routes, Route, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -65,23 +66,27 @@ const Register = () => {
   }
 
   return (
-    <div>
-      <h2>Register</h2>
+    <div className="test-regist">
+      <div className="regist-container">
+      <h2 className="regist-header">Register</h2>
 
-      <input onChange={handleFirstName} type={Text} placeholder = "First Name" />
-      <input onChange={handleLastName} type={Text} placeholder = "Last Name" />
-      <input onChange={handleEmail} placeholder="Email" />
-      <input onChange={handlePassword} placeholder="Password" type={"password"} />
-      <input onChange={handleAge} type={Number} placeholder = "Age" />
-      <input onChange={handleGender} type={Text} placeholder = "Gender" />
-      <input onChange={handleCity} type={Text} placeholder = "City" />
-      <input onChange={handleImage} type={Text} placeholder = "Image-URL" />
+      <input className="regist-input" onChange={handleFirstName} type={Text} placeholder = "First Name" />
+      <input className="regist-input" onChange={handleLastName} type={Text} placeholder = "Last Name" />
+      <input className="regist-input" onChange={handleEmail} placeholder="Email" />
+      <input className="regist-input" onChange={handlePassword} placeholder="Password" type={"password"} />
+      <input className="regist-input" onChange={handleAge} type={Number} placeholder = "Age" />
+      <input className="regist-input" onChange={handleGender} type={Text} placeholder = "Gender" />
+      <input className="regist-input" onChange={handleCity} type={Text} placeholder = "City" />
+      <input className="regist-input" onChange={handleImage} type={Text} placeholder = "Image-URL" />
 
-      <button onClick={handleButton}>Register</button>
-      <div>{userResponse}</div>
+      {!userResponse && 
+        <button className="regist-button" onClick={handleButton}>Register</button>
+      } 
+      <div className="response">{userResponse}</div>
       {userResponse && 
-      <button onClick={handleBackButton}>Back to login page</button>
+      <button className="back" onClick={handleBackButton}>Back to login page</button>
       }
+      </div>
     </div>
   );
 };
