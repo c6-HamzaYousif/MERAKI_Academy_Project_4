@@ -72,6 +72,7 @@ const editProfile = (req, res) => {
     const {firstName, lastName, email, password, age, city, gender, image, role="6330aca8842611c737b59c50"} = req.body;
     usersModel.findOneAndUpdate({_id: selectedProfile}, {firstName, lastName, email, password, age, city, gender, image, role}, {new:true})
     .then((result) => {
+        console.log(result);
         const successObject = {
             message: "Profile updated successfully",
             success: true,

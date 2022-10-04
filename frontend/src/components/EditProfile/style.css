@@ -1,0 +1,20 @@
+.profile-divv{
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+}
+/*  */
+/* .profile-input{ */
+    /* width: 20%;
+    align-self: flex-start;
+    margin-left: 30px; */
+/* } */
+.edit-line{
+    display: flex;
+    flex-direction: row;
+}
+.prof-svg{
+    width: 15px;
+    height: 15px;
+    margin-left: 15px;
+}

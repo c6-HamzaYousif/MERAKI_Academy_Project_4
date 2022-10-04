@@ -88,7 +88,7 @@ const Navbar = () => {
     <img onClick={() => {setToggle(!toggle)}} className="profile-pic" src= {profilePic}/>
     {toggle && <div className="toggle-div">
       <h4  className="menu" onClick={() => {navigate('/orders'); setToggle(!toggle)}}>My Orders</h4>
-      <h4 className="menu">My Profile</h4>
+      <h4 className="menu" onClick={() => {navigate('/profile')}}>My Profile</h4>
       <h4 className="menu" onClick={handleLogout}>Logout</h4>
     </div>}
     </div>

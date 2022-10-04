@@ -14,6 +14,7 @@ import Search from "./components/Search";
 import Cart from "./components/Cart";
 import Order from "./components/Order";
 import Footer from "./components/Footer";
+import EditProfile from "./components/EditProfile";
 
 export const NewContext = createContext();
 
@@ -40,6 +41,11 @@ function App() {
   const[kidsBottom, setKidsBottom] = useState([]);
   const[kidsShoes, setKidsShoes] = useState([]);
   const [searchArray, setSearchArray] = useState([]);
+  const [userEmail, setUserEmail] =useState('')
+  const [userPassword, setUserPassword] =useState('')
+  const [userCity, setUserCity] =useState('')
+  const [userLastName, setUserLastName] =useState('')
+
   
   const[singleProducts, setSingleProduct] = useState([]);
   const[addComment, setAddComment] = useState(false);
@@ -54,7 +60,7 @@ function App() {
   if(!isLoggedIn){
     return (
     
-      <NewContext.Provider value={{token, setToken, setIsLoggedIn, setProfilePicture, setLoggedInUserGender, setLoggedInUserAge, setLoggedInUserId, setLoggerFirstName, cart}}>
+      <NewContext.Provider value={{token, setToken, setIsLoggedIn, setProfilePicture, setLoggedInUserGender, setLoggedInUserAge, setLoggedInUserId, setLoggerFirstName, cart, setUserEmail, setUserPassword, setUserCity, setUserLastName}}>
       <div className="App">
       <Routes>
         <Route path = "/" element = {<Login />} />
@@ -69,7 +75,7 @@ function App() {
   }else{
     return(
 
-      <NewContext.Provider value={{setIsLoggedIn, profilePicture, loggedInUserGender, loggedInUserAge, setShow, show, loggedInUserId, loggerFirstName, setWomenWear, womenShoes, setWomenShoes, womenTop, setWomenTop, womenBottom, setWomenBottom, womenWear, mensWear, setMenWear, menTop, setMenTop, menBottom, setMenBottom, menShoes, setMenShoes, kidsWear, setKidsWear, kidsTop, setKidsTop, kidsBottom, setKidsBottom, kidsShoes, setKidsShoes,   singleProducts, setSingleProduct, addComment, setAddComment, showInputComment, setShowInputComment, comment, setCommment, productID, setProductID, searchArray, setSearchArray, theToken, setCart, cart, cartItems, setCartitems}}>
+      <NewContext.Provider value={{setIsLoggedIn, profilePicture, loggedInUserGender, loggedInUserAge, setShow, show, loggedInUserId, loggerFirstName, setWomenWear, womenShoes, setWomenShoes, womenTop, setWomenTop, womenBottom, setWomenBottom, womenWear, mensWear, setMenWear, menTop, setMenTop, menBottom, setMenBottom, menShoes, setMenShoes, kidsWear, setKidsWear, kidsTop, setKidsTop, kidsBottom, setKidsBottom, kidsShoes, setKidsShoes,   singleProducts, setSingleProduct, addComment, setAddComment, showInputComment, setShowInputComment, comment, setCommment, productID, setProductID, searchArray, setSearchArray, theToken, setCart, cart, cartItems, setCartitems, userEmail, userPassword, userCity, userLastName, loggerFirstName, profilePicture, loggedInUserGender, loggedInUserAge}}>
         <Navbar />
 
         <Routes>
@@ -82,9 +88,10 @@ function App() {
           <Route path = "/search" element = {<Search />} />
           <Route path = "/cart" element = {<Cart />} />
           <Route path="/orders" element = {<Order />} />
+          <Route path="/profile" element={<EditProfile />} />
         </Routes>
 
-        <Footer />
+        {/* <Footer /> */}
 
       </NewContext.Provider>
 

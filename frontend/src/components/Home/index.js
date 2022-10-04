@@ -193,9 +193,7 @@ const Home = () => {
         // }
     }
     const handleSubmitComment = () => {
-        // console.log(loggerId);
-        // console.log(comment);
-        // console.log(productID);
+ 
         axios.post(`http://localhost:5000/comments/add/${productID}`, {
             comment: comment,
             commenter: loggerId,

@@ -15,6 +15,11 @@ const Login = () => {
   const setUserAge = useContext(NewContext).setLoggedInUserAge;
   const setLoggerId = useContext(NewContext).setLoggedInUserId;
   const loggerFN = useContext(NewContext).setLoggerFirstName;
+  const setUserLastName = useContext(NewContext).setUserLastName;
+  const setUserCity = useContext(NewContext).setUserCity;
+  const setUserPassword = useContext(NewContext).setUserPassword;
+  const setUserEmail = useContext(NewContext).setUserEmail;
+
 
 
   const navigate = useNavigate();
@@ -39,9 +44,15 @@ const Login = () => {
       password: password
     })
     .then((result) => {
+      // gender, image, age, id, firstName
+      //  lastName, city, email, password
       setUserGender(result.data.result[0].gender);
       profilePic(result.data.result[0].image);
       setUserAge(result.data.result[0].age);
+      setUserEmail(result.data.result[0].email);
+      setUserPassword(result.data.result[0].password);
+      setUserCity(result.data.result[0].city);
+      setUserLastName(result.data.result[0].lasName);
       setTokenValue(result.data.token);
       // console.log(result.data.token);
       // console.log(token);
