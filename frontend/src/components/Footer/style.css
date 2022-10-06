@@ -1,5 +1,7 @@
 .fooot{
-    margin-left: 40px;
+    /* margin-left: 40px; */
+    border: 1px solid black;
+    padding: 20px;
 }
 .foot-contain{
     display: flex;

@@ -1,3 +1,4 @@
+import "./style.css"
 import axios from 'axios';
 import React, {useState, useEffect, useContext} from "react";
 import { NewContext } from "../../App";
@@ -55,7 +56,7 @@ const handleSubmitComment = () => {
                     <h2>Available Sizes: 
                     {singleProducts[0].size.map((elem, i) => {
                         if(i<(singleProducts[0].size.length) - 1){
-                         return <span className = "prod-span" key={i}>{elem},</span>
+                         return <span className = "prod-span" key={i}>{elem} ,</span>
                      }else{
                            return <span className = "prod-span" key={i}>{elem}</span>
                      }
@@ -63,21 +64,26 @@ const handleSubmitComment = () => {
                     </h2>
                     <h2>Seasons: 
                     {singleProducts[0].season.map((elem, i) => {
-                        return <span className = "prod-span" key={i}>{elem}</span>
+                        if(i<(singleProducts[0].season.length) - 1){
+                            return <span className = "prod-span" key={i}>{elem} ,</span>
+                        }else{
+                              return <span className = "prod-span" key={i}>{elem}</span>
+                        }
+                        // return <span className = "prod-span" key={i}>{elem}</span>
                  })}
                  </h2>
-                 <h2>Price: {singleProducts[0].price}</h2>
+                 <h2>Price: {singleProducts[0].price} JOD</h2>
                 </div>
                 <div className="second-baby">
 
-                <button onClick={handleCommentButton}>Add a comment</button>
+                <button className="comment_btn" onClick={handleCommentButton}>Add a comment</button>
                  <br/>
                  {showInputComment && 
-                 <>
-                 <textarea onChange={(e) => {setCommment(e.target.value)}} placeholder="Type your opinion about this product" />
-                 <button onClick={handleSubmitComment}>Submit</button>
-                 <button onClick={() => {setShowInputComment(false)}}>Cancel</button>
-                 </>
+                 <div className="comment-placeholder-container">
+                 <textarea className="txtArea_cmnt" onChange={(e) => {setCommment(e.target.value)}} placeholder="Type your opinion about this product" />
+                 <button className="comment_btnn" onClick={handleSubmitComment}>Submit</button>
+                 <button className="comment_btnn" onClick={() => {setShowInputComment(false)}}>Cancel</button>
+                 </div>
                  }
 
                 {singleProducts[0].comments.map((elem, i) => {
@@ -86,9 +92,9 @@ const handleSubmitComment = () => {
                         <div className="comment-box">
                         <div className="small-comment-box">
                             <img className="comment-pic" src= {elem.image} />
-                            <h4 className = "comment-text-name">{elem.firstName}</h4>
                         </div>
-                        <div >
+                        <div className="comment-space">
+                            <h4 className = "comment-text-name">{elem.firstName}</h4>
                             <h4 className = "comment-text-comment">{elem.comment}</h4>
                         </div>    
                     </div>

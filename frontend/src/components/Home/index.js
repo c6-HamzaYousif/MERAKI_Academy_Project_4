@@ -216,7 +216,6 @@ const Home = () => {
     //loggerId
 
     const AddToCart = (e) => {
-
         axios.post('http://localhost:5000/carts/add', {
             items: e.target.className,
             user: loggerId,
@@ -226,6 +225,7 @@ const Home = () => {
             },
           })
         .then((result) => {
+            console.log(result);
             setCartitems([...cartItems, result.data.product])
         })
         .catch((err) => {
@@ -245,8 +245,8 @@ const Home = () => {
                   <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
           
                   <div className = "text-cart-container">
-                  <h2 className="porduct-text">{elem.price} JOD</h2>
-                  <button className={elem._id} onClick={AddToCart}>Add To Shopping Cart</button>
+                  <h2 className="text-cart-txt">{elem.price} JOD</h2>
+                  <button className={elem._id} onClick={AddToCart}>Add To Cart</button>
                   {/* <svg xmlns="http://www.w3.org/2000/svg" width="160" height="16" fill="currentColor" class="bi bi-cart" ewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
                   </div>
                   </div> 
@@ -268,8 +268,8 @@ const Home = () => {
                 <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
         
                 <div className = "text-cart-container">
-                <h2 className="porduct-text">{elem.price} JOD</h2>
-                <button className={elem._id} onClick={AddToCart}>Add To Shopping Cart</button>
+                <h2 className="text-cart-txt">{elem.price} JOD</h2>
+                <button className={elem._id} onClick={AddToCart}>Add To Cart</button>
                 {/* <svg xmlns="http://www.w3.org/2000/svg" width="160" height="16" fill="currentColor" class="bi bi-cart" ewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
                 </div>
                 </div> 
@@ -292,8 +292,8 @@ const Home = () => {
                       <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
               
                       <div className = "text-cart-container">
-                      <h2 className="porduct-text">{elem.price} JOD</h2>
-                      <button className={elem._id} onClick={AddToCart}>Add To Shopping Cart</button>
+                      <h2 className="text-cart-txt">{elem.price} JOD</h2>
+                      <button className={elem._id} onClick={AddToCart}>Add To Cart</button>
                       {/* <svg xmlns="http://www.w3.org/2000/svg" width="160" height="16" fill="currentColor" class="bi bi-cart" ewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
                       </div>
                       </div> 
@@ -317,8 +317,8 @@ const Home = () => {
               <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
       
               <div className = "text-cart-container">
-              <h2 className="porduct-text">{elem.price} JOD</h2>
-              <button className={elem._id} onClick={AddToCart}>Add To Shopping Cart</button>
+              <h2 className="text-cart-txt">{elem.price} JOD</h2>
+              <button className={elem._id} onClick={AddToCart}>Add To Cart</button>
               {/* <svg xmlns="http://www.w3.org/2000/svg" width="160" height="16" fill="currentColor" class="bi bi-cart" ewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
               </div>
               </div> 
@@ -340,8 +340,8 @@ const Home = () => {
             <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
     
             <div className = "text-cart-container">
-            <h2 className="porduct-text">{elem.price} JOD</h2>
-            <button className={elem._id} onClick={AddToCart}>Add To Shopping Cart</button>
+            <h2 className="text-cart-txt">{elem.price} JOD</h2>
+            <button className={elem._id} onClick={AddToCart}>Add To Cart</button>
             {/* <svg xmlns="http://www.w3.org/2000/svg" width="160" height="16" fill="currentColor" class="bi bi-cart" ewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
             </div>
             </div> 
@@ -364,8 +364,8 @@ const Home = () => {
                   <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
           
                   <div className = "text-cart-container">
-                  <h2 className="porduct-text">{elem.price} JOD</h2>
-                  <button className={elem._id} onClick={AddToCart}>Add To Shopping Cart</button>
+                  <h2 className="text-cart-txt">{elem.price} JOD</h2>
+                  <button className={elem._id} onClick={AddToCart}>Add To Cart</button>
                   {/* <svg xmlns="http://www.w3.org/2000/svg" width="160" height="16" fill="currentColor" class="bi bi-cart" ewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
                   </div>
                   </div> 
@@ -385,14 +385,15 @@ const Home = () => {
   const displayMenTop = menTop.slice(itemVisited, itemVisited + itemPerPage).map((elem, i) => {
     return(
         <div className="porduct" key={i}>
-        <h2 className="porduct-text">{elem.name}</h2>
-        <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
-
-        <div className = "text-cart-container">
-        <h2 className="porduct-text">{elem.price} JOD</h2>
-        <button className={elem._id} onClick={AddToCart}>Add To Shopping Cart</button>
-        {/* <svg xmlns="http://www.w3.org/2000/svg" width="160" height="16" fill="currentColor" class="bi bi-cart" ewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
-        </div>
+            <h2 className="porduct-text">{elem.name}</h2>
+            <div className="testtt">
+                <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
+            </div>
+            <div className = "text-cart-container">
+                <h2 className="text-cart-txt">{elem.price} JOD</h2>
+                <button className={elem._id} onClick={AddToCart}>Add To Cart</button>
+        {/* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className={elem._id} onClick={AddToCart} viewBox="0 0 16 16"><path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5Zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0ZM14 14V5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1ZM8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/></svg> */}
+            </div>
         </div> 
     )
   })
@@ -412,9 +413,9 @@ const Home = () => {
             <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
     
             <div className = "text-cart-container">
-            <h2 className="porduct-text">{elem.price} JOD</h2>
-            <button className={elem._id} onClick={AddToCart}>Add To Shopping Cart</button>
-            {/* <svg xmlns="http://www.w3.org/2000/svg" width="160" height="16" fill="currentColor" class="bi bi-cart" ewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
+            <h2 className="text-cart-txt">{elem.price} JOD</h2>
+            <button className={elem._id} onClick={AddToCart}>Add To Cart</button>
+            {/* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className={elem._id} onClick={AddToCart} viewBox="0 0 16 16"><path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5Zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0ZM14 14V5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1ZM8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/></svg> */}
             </div>
             </div> 
         )
@@ -432,14 +433,14 @@ const Home = () => {
             const displayMenShoes = menShoes.slice(menShoesVisited, menShoesVisited + menShoesPerPage).map((elem, i) => {
               return(
                   <div className="porduct" key={i}>
-                  <h2 className="porduct-text">{elem.name}</h2>
-                  <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
+                    <h2 className="porduct-text">{elem.name}</h2>
+                    <img onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} />
           
-                  <div className = "text-cart-container">
-                  <h2 className="porduct-text">{elem.price} JOD</h2>
-                  <button className={elem._id} onClick={AddToCart}>Add To Shopping Cart</button>
-                  {/* <svg xmlns="http://www.w3.org/2000/svg" width="160" height="16" fill="currentColor" class="bi bi-cart" ewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
-                  </div>
+                    <div className = "text-cart-container">
+                        <h2 className="text-cart-txt">{elem.price} JOD</h2>
+                        <button className={elem._id} onClick={AddToCart}>Add To Cart</button>
+                        {/* <svg class={elem._id} onClick={AddToCart} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5Zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0ZM14 14V5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1ZM8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/></svg> */}
+                    </div>
                   </div> 
               )
             })
@@ -451,7 +452,7 @@ const Home = () => {
     if(!showTheProduct){
         if(age <= 16){
             return (
-                <>
+                <div className="hoem-marg">
                 <div className="box-div">
                     {displayKidsTop}
                 </div>
@@ -501,11 +502,11 @@ const Home = () => {
             />
                         <Footer />
 
-                </>
+                </div>
             )
         }else if(gender === "male"){
             return (
-                <>
+                <div className="hoem-marg">
 
                 <div className="box-div">
                     {displayMenTop}
@@ -556,11 +557,11 @@ const Home = () => {
     />
                 <Footer />
 
-                </>
+                </div>
             )        }
             else if(gender === "female"){
                 return (
-                    <>
+                    <div className="hoem-marg">
         <div className="box-div">
             {displayWomenTop}
         </div>
@@ -610,7 +611,7 @@ const Home = () => {
     />
             <Footer />
 
-        </>
+        </div>
                 )    }
     }
 

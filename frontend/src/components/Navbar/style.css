@@ -13,8 +13,14 @@
   top: 0;
   width: 100%;
   background-image: linear-gradient(to right, white , rgb(219, 231, 227));
+  /* margin-bottom: 120px; */
 }
-
+.searchsvg{
+    margin-top: 20px;
+    margin-left: 10px;
+    /* width: 30px;
+    height: 20px; */
+}
 .logo{
     width: 100px;
     height: 100px;
@@ -23,6 +29,12 @@
     position: fixed;
     top: 20px;
     right: 40px;
+}
+.cartsvg:hover{
+    cursor: pointer;
+}
+.logo:hover{
+    cursor: pointer;
 }
 .profile-pic{
     
@@ -35,6 +47,7 @@
 .profile-pic:hover{
     cursor: pointer;
 }
+
 
 .nav-bar-text{
     font-size: 30px;
@@ -51,7 +64,7 @@ span{
     width: 80%;
     height: 30px;
     border-radius: 20px;
-    /* margin-top: -30px; */
+    margin-top: 20px;
 }
 
 .nav-1{
@@ -63,6 +76,10 @@ span{
 .nav-3{
     width: 50%;
     margin-top: -20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: center; */
 }
 .nav-4{
     width: 10%;

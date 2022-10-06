@@ -16,6 +16,7 @@ const Search = () => {
     const userToken = useContext(NewContext).theToken;
     const cartItems = useContext(NewContext).cartItems;
     const setCartitems = useContext(NewContext).setCartitems;
+    const [width, setWidth] = useState("big")
 
     const showProduct = (e) => {
         const selectedProductId = e.target.id;
@@ -51,11 +52,18 @@ const Search = () => {
         })
     }
 
+
             //------------------------------PAGINATION SEARCH-------------------------------\\
 
 
-            const [SearchNumber, setSearchNumber] = useState(0) 
-            const SearchPerPage = 4;
+            const [SearchNumber, setSearchNumber] = useState(0)
+            let SearchPerPage = 2;
+            if(window.innerWidth>800){
+                  SearchPerPage = 4;
+            }else{
+                 SearchPerPage = 1;
+            } 
+            
             const SearchVisited = SearchNumber * SearchPerPage;
             const displaySearch = searchArray.slice(SearchVisited, SearchVisited + SearchPerPage).map((elem, i) => {
               return(
@@ -64,8 +72,8 @@ const Search = () => {
                 <img  onClick={showProduct} id={elem._id} className="porductimg" src={elem.image} /> 
                 
                 <div className = "text-cart-container">
-                <h2 className="porduct-text">{elem.price} JOD</h2>
-                <button className={elem._id} onClick={AddToCart}>Add To Shopping Cart</button>
+                <h2 className="text-cart-txt">{elem.price} JOD</h2>
+                <button className={elem._id} onClick={AddToCart}>Add To Cart</button>
                 {/* <svg xmlns="http://www.w3.org/2000/svg" width="160" height="16" fill="currentColor" class="bi bi-cart" ewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg> */}
                 </div>
                 </div>  
@@ -81,7 +89,7 @@ const Search = () => {
 
     if(searchArray.length > 0){
         return (
-            <>
+            <div className="hoem-marg">
             <div className="box-div">
                 {displaySearch}
             </div>
@@ -97,7 +105,7 @@ const Search = () => {
             activeClassName={"act"}
 
 />
-</>
+            </div>
           )
     }else{
         return <h1>No items matched your search</h1>

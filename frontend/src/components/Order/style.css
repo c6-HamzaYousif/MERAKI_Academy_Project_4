@@ -1,6 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200&display=swap');
+
 .order{
     margin-top: 120px;
     text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+
 }
 .order-header{
     display: flex;

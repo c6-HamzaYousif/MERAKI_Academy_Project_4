@@ -1,26 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200&display=swap');
+
 .porduct{
     /* background-color: yellow; */
-    border: 2px solid black;
+    /* border: 2px solid black; */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    
+    /* justify-content: center; */
+    /* font-family: 'Bebas Neue', cursive; */
     align-items: center;
-    margin-top: 120px;
+    /* margin-top: 0px; */
 
 }
-
+/* 1 */
 .porduct-text{
-    color: green;
+    /* color: green; */
+    height: 15%;
+    font-family: 'Barlow Condensed', sans-serif;
+    margin-left: 20px;
+    text-align: center;
+}
+/* 2 */
+.testtt{
+    height: 70%;
 }
 
 .porductimg{
     width: 300px;
-    height: 300px;
+    height: 320px;
 }
+.porductimg:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+    transition: all ease 0.6s;
+}
+/* 3 */
 .text-cart-container{
+    height: 15%;
+
+    margin-top: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
+}
+.text-cart-container button{
+    /* color: red; */
+    background-color: rgb(219, 231, 227);
+    width: 120px;
+    height: 40px;
+    border-radius: 20px;
+    /* border: 1px; */
+}
+.text-cart-container button:hover{
+    cursor: pointer;
+}
+.text-cart-txt{
+    font-family: 'Barlow Condensed', sans-serif;
+    margin-right: 20px;
+    /* col */
 }
 
 /* .svg{
@@ -34,68 +73,15 @@
     width: 100px;
 } */
 
-.prod-span{
-    margin: 0 10px 0 10px;
-}
 
-.big-container{
-    display: flex;
-    flex-direction: row;
-    margin-top: 120px;
-}
-
-.first-small-container-img{
-    width: 300px;
-    height: 500px;
-    margin: 0 20px 0 20px;
-}
-
-.second-baby{
-    /* border: 1px solid black; */
-}
-
-.comment-box{
-    display: flex;
-    flex-direction: row;
-    /* justify-content: space-between; */
-    margin-top: 10px;
-    height: 130px;
-    border: 1px solid black;
-
-}
-
-.comment-pic{
-    width: 50px;
-    height: 50px;
-    border-radius: 25px;
-    /* margin-left: 10px; */
-}
-
-.small-comment-box{
-    /* background-color: blue; */
-    margin-top: 20px;
-    margin-left: 20px;
-    /* height: 60%; */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.comment-text-name{
-    /* margin-left: -10px; */
-    margin-top: -1px;
-}
-
-.comment-text-comment{
-    font-size: 25px; 
-    margin-left: 30px;
-    /* margin-top: 5px; */
-    /* border: 1px solid black; */
-
-
-}
 
 .box-div{
     display: flex;
     flex-direction: row;
+    border: 1px solid black;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+.hoem-marg{
+    margin-top: 120px;
 }

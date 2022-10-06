@@ -40,10 +40,10 @@ const addToCart = (req, res) => {
         res.status(404).json(err.message)
     })
         }else{
-            // console.log(result);
+            console.log(result);
             let x = result[0].counter + 1
             console.log(x);
-            cartsModel.findOneAndUpdate({items: items}, {items, user, counter: x}, {new:true})
+            cartsModel.findOneAndUpdate({items: items, isOrdered:false}, {counter: x}, {new:true})
             .then((result) => {
                 res.status(201).json(result);
             })
