@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./style.css"
 
 const Footer = () => {
-
+  const [suggestions, setSuggestion] = useState('')
   return (
     <div className='fooot'>
         <div className='foot-contain'>
@@ -14,8 +14,8 @@ const Footer = () => {
         </div>
         <div className='foot-contain'>
           <h2 className='first-text'>Comments And Suggestions: </h2>
-          <textarea className='foot-textArea' placeholder='share your thoughts about the website' />
-          <button className='ft-btn'>Submit</button>
+          <textarea onChange={(e) => {setSuggestion(e.target.value)}} className='foot-textArea' placeholder='share your thoughts about the website' />
+          <button onClick={() => {setSuggestion('')}} className='ft-btn'>Submit</button>
         </div>
     </div>
   )

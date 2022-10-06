@@ -84,7 +84,7 @@ const editProfile = (req, res) => {
     .then((result) => {
         console.log(result);
         const successObject = {
-            message: "Changes Have Been Saved",
+            message: "Changes Have Been Saved Successfully",
             success: true,
             result: result
         }

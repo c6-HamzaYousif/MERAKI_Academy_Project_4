@@ -47,14 +47,20 @@
 }
 .text-cart-container button{
     /* color: red; */
+    
     background-color: rgb(219, 231, 227);
     width: 120px;
     height: 40px;
     border-radius: 20px;
-    /* border: 1px; */
+
 }
 .text-cart-container button:hover{
     cursor: pointer;
+    background-color: rgb(168, 197, 187);
+}
+.edit-btn:hover{
+    cursor: pointer;
+    /* font-size: 23px; */
 }
 .text-cart-txt{
     font-family: 'Barlow Condensed', sans-serif;

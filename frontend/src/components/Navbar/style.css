@@ -118,8 +118,10 @@ svg{
     text-align: center;
 }
 .toggle-div{
-    background-color: white;
-    padding: 10px;
+    background-color: rgb(219, 231, 227);
+    /* background-color: white; */
+    padding: 15px;
+    border-radius: 20px;
 }
 
 .menu:hover{

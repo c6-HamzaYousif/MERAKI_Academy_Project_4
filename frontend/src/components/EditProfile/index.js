@@ -129,9 +129,9 @@ const EditProfile = () => {
             {e8 && <input className="profile-input" onChange={handleImage} type={Text} placeholder = "New Image-URL" />}
       </div>
 
-      <button onClick={handleButton}>Save Changes</button>
+      <button className="edit-btn" onClick={handleButton}>Save Changes</button>
       {responseToUser && 
-        <h4>{responseToUser}</h4>
+        <h4 className="edit-res">{responseToUser}</h4>
       }
     </div>
   )
