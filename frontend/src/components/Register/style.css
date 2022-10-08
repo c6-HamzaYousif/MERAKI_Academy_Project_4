@@ -14,7 +14,7 @@
     flex-direction: column;
     width: 30%;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 100px;
     background-color: white;
     height: 550px;
     border-radius: 20px;
@@ -30,6 +30,11 @@
     background: transparent;
     border: none;
     border-bottom: 1px grey solid;
+    outline: 0px solid transparent;
+
+}
+.container-pass-reg{
+    margin-top: -25px;
 }
 .regist-button{
     width: 30%;
@@ -39,6 +44,10 @@
     /* margin-top: 15px; */
     border-radius: 20px;
     background-color: burlywood;
+}
+.regist-button:hover{
+    cursor: pointer;
+    background-color: rgb(194, 165, 128);
 }
 .response{
     margin-top: 10px;
@@ -53,4 +62,30 @@
     margin-top: 15px;
     border-radius: 20px;
     background-color: burlywood;
+}
+@media (max-width: 600px){
+    .regist-container{
+        width: 60%;
+        margin-top: 50px;
+        height: 400px;
+        border-radius: 20px;
+        height: 500px;
+
+    }
+    .showPass{
+        width: 15px;
+        height: 15px;
+        margin-left: -10px;
+    }
+    .container-pass-reg{
+        margin-left: 25px;
+    }
+    .regist-button{
+        width: 50%;
+    }
+    .response{
+        margin-top: 10px;
+        color: red;
+        font-size: 23px;
+    }
 }

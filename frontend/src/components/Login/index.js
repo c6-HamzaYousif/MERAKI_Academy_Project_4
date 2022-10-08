@@ -19,6 +19,7 @@ const Login = () => {
   const setUserCity = useContext(NewContext).setUserCity;
   const setUserPassword = useContext(NewContext).setUserPassword;
   const setUserEmail = useContext(NewContext).setUserEmail;
+  const [showPassword, setShowPassword] = useState(false)
 
 
 
@@ -56,7 +57,7 @@ const Login = () => {
       setTokenValue(result.data.token);
       // console.log(result.data.token);
       // console.log(token);
-      localStorage.setItem("theToken", token)
+      // localStorage.setItem("theToken", token)
       setLoggerId(result.data.result[0]._id)
       loggerFN(result.data.result[0].firstName)
       setLogged(true);
@@ -76,12 +77,14 @@ const Login = () => {
       <div className="login-container">
         <h2 className="login-header">Login</h2>
         <div className="some-div">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-envelope" viewBox="0 0 16 16"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="svglog" viewBox="0 0 16 16"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/></svg>
           <input onChange={handleEmail} placeholder='Type Your Email'  className="login-input"/>
         </div>
         <div className="some-div">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-lock-fill" viewBox="0 0 16 16"><path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/></svg>
-        <input onChange={handlePassword} placeholder="Type Your Password" type={"password"}  className="login-input"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="svglog" viewBox="0 0 16 16"><path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/></svg>
+            <input onChange={handlePassword} placeholder="Type Your Password" type={showPassword ? "text" : "password"}  className="login-input"/>
+            {!showPassword && <svg onClick={() => {setShowPassword(!showPassword)}} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="showPass" viewBox="0 0 16 16"><path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/><path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/></svg>} 
+            {showPassword && <svg onClick={() => {setShowPassword(!showPassword)}} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="showPass" viewBox="0 0 16 16"><path d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588zM5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z"/><path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12-.708.708z"/></svg>}        
         </div>
         <button className="login-button" onClick={handleButton}>Login</button>
         <h3 className="login-response">{userResponse}</h3>

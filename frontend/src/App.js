@@ -45,6 +45,7 @@ function App() {
   const [userPassword, setUserPassword] =useState('')
   const [userCity, setUserCity] =useState('')
   const [userLastName, setUserLastName] =useState('')
+  localStorage.setItem("theToken", token)
 
   
   const[singleProducts, setSingleProduct] = useState([]);

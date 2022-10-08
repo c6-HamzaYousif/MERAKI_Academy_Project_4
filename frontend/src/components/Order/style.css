@@ -49,3 +49,27 @@
     display: flex;
     flex-direction: row;
 }
+@media (max-width: 600px){
+    .order{
+        font-size: 14px;
+    }
+    .order-img{
+        width: 60px;
+        height: 100px;
+    }
+
+    .or-head-big{
+        width: 38%;
+        margin: auto;
+        padding: 10px;
+    }
+    
+    .or-head-med{
+        width: 20%;
+        margin-left: 20px;
+    }
+    .or-head-sml{
+        width: 14%;
+    }
+
+}

@@ -57,3 +57,14 @@ act */
     /* visibility: hidden; */
 
 }
+@media (max-width: 600px){
+    .nxt{
+        left: 310px;
+        top: -230px;
+
+    }
+    .prev{
+
+        top: -230px;
+    }
+}

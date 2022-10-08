@@ -8,6 +8,16 @@
     width: 100%;
     overflow: hidden;
 }
+.some-div{
+    display: flex;
+    flex-direction: row;
+    /* margin-top: 20px; */
+
+}
+.showPass{
+    /* margin-top: 120px; */
+    /* color: yellow; */
+}
 
 .login-container{
     font-family: 'Bebas Neue', cursive;
@@ -16,7 +26,7 @@
     width: 30%;
     margin: auto;
     /* border: 1px solid white; */
-    margin-top: 100px;
+    margin-top: 150px;
     background-color: white;
     height: 400px;
     border-radius: 20px;
@@ -33,7 +43,16 @@
     margin-bottom: -100px;
     /* margin-top: 30px; */
 }
-
+.showPass{
+    width: 20px;
+    height: 20px;
+    margin-left: -30px;
+}
+.svglog{
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+}
 .login-input{
     width: 70%;
     align-self: center;
@@ -42,6 +61,9 @@
     background: transparent;
     border: none;
     border-bottom: 1px grey solid;
+    margin-top: 10px;
+    outline: 0px solid transparent;
+
 }
 svg{
     margin-right: 20px;
@@ -53,12 +75,17 @@ svg{
 }
 
 .login-button{
-    width: 80%;
+     width: 80%;
+    margin-top: 35px;
+    border-radius: 20px; 
     height: 40px;
     align-self: center; 
     margin-left: 15px;
-    /* margin-top: 15px; */
-    border-radius: 20px;
+    background-color: burlywood;
+}
+.login-button:hover{
+    cursor: pointer;
+    background-color: rgb(194, 165, 128);
 }
 .span-log{
     margin-left: 20px;
@@ -72,4 +99,20 @@ svg{
     cursor: pointer;
     transform: scale(1.5);
     transition: all ease 0.2s;
+}
+.login-response{
+    /* margin-top: 220px; */
+}
+@media (max-width: 600px){
+    .login-container{
+        width: 60%;
+        margin-top: 100px;
+        height: 400px;
+        border-radius: 20px;
+    }
+    .showPass{
+        width: 20px;
+        height: 20px;
+        margin-left: -10px;
+    }
 }

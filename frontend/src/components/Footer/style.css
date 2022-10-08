@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200&display=swap');
+
 .fooot{
     /* margin-left: 40px; */
     border: 1px solid black;
@@ -7,6 +9,7 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+    font-family: 'Barlow Condensed', sans-serif;
 }
 .facebook{
     /* width: 15%; */
@@ -43,7 +46,7 @@
     /* background-color: yellow; */
 }
 .first-text{
-    width: 25%;
+    /* width: 25%; */
 }
 .foot-textArea{
     margin-left: 20px;
@@ -54,7 +57,83 @@
 .ft-btn{
     width: 100px;
     height: 30px;
-    margin-left: 10px;
+    margin-left: 40px;
     margin-top: 25px;
     border-radius: 5px;
+    background-color: rgb(219, 231, 227);
+}
+
+.ft-btn:hover{
+    cursor: pointer;
+    background-color: rgb(168, 197, 187);
+}
+.media-first{
+    width: 25%;
+}
+.media-second{
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 600px){
+    .foot-contain{
+        font-size: 13px;
+        font-family: 'Barlow Condensed', sans-serif;
+    }
+    .media-first{
+        width: 30%;
+    }
+    .media-second{
+        width: 70%;
+        display: flex;
+        flex-direction: row;
+    }
+    .facebook{
+        /* width: 15%; */
+        margin-left: 5px;
+        width: 30px;
+        height: 30px;
+        color: blue;
+    
+    
+    }
+    .twitter{
+        /* width: 15%; */
+        margin-left: 5px;
+        width: 30px;
+        height: 30px;
+        color: rgb(29, 161, 242);
+    
+    }
+    .instagram{
+        /* width: 15%; */
+        margin-left: 5px;
+        width: 30px;
+        height: 30px;
+        color: rgb(64, 93, 230);
+        /* color: yellow; */
+    
+    }
+    .snapchat{
+        /* width: 15%; */
+        margin-left: 5px;
+        width: 30px;
+        height: 30px;
+        color: yellow;
+        /* background-color: yellow; */
+    }
+    .foot-textArea{
+        margin-left: 20px;
+        width: 50%;
+        height: 50px;
+        margin-top: 20px;
+    }
+    .ft-btn{
+        width: 60px;
+        height: 30px;
+        margin-left: 10px;
+        margin-top: 40px;
+        border-radius: 10px;
+    }
 }

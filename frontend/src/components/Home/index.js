@@ -236,7 +236,13 @@ const Home = () => {
 
 
             const [WomenTopNumber, setWomenTopNumber] = useState(0) 
-            const WomenTopPerPage = 4;
+            // const WomenTopPerPage = 4;
+            let WomenTopPerPage = 2
+            if(window.innerWidth>800){
+                WomenTopPerPage = 4;
+          }else{
+            WomenTopPerPage = 1;
+          }
             const WomenTopVisited = WomenTopNumber * WomenTopPerPage;
             const displayWomenTop = womenTop.slice(WomenTopVisited, WomenTopVisited + WomenTopPerPage).map((elem, i) => {
               return(
@@ -259,7 +265,13 @@ const Home = () => {
     
           //------------------------------PAGINATION WOMEN BOTTOM-------------------------------\\
           const [WomenBottomNumber, setWomenBottomNumber] = useState(0) 
-          const WomenBottomPerPage = 4;
+        //   const WomenBottomPerPage = 4;
+        let WomenBottomPerPage = 2
+            if(window.innerWidth>800){
+                WomenBottomPerPage = 4;
+          }else{
+            WomenBottomPerPage = 1;
+          }
           const WomenBottomVisited = WomenBottomNumber * WomenBottomPerPage;
           const displayWomenBottom = womenBottom.slice(WomenBottomVisited, WomenBottomVisited + WomenBottomPerPage).map((elem, i) => {
             return(
@@ -283,7 +295,13 @@ const Home = () => {
     
                 //------------------------------PAGINATION WOMEN SHOES-------------------------------\\
                 const [WomenShoesNumber, setWomenShoesNumber] = useState(0) 
-                const WomenShoesPerPage = 4;
+                // const WomenShoesPerPage = 4;
+                let WomenShoesPerPage = 2
+            if(window.innerWidth>800){
+                WomenShoesPerPage = 4;
+          }else{
+            WomenShoesPerPage = 1;
+          }
                 const WomenShoesVisited = WomenShoesNumber * WomenShoesPerPage;
                 const displayWomenShoes = womenShoes.slice(WomenShoesVisited, WomenShoesVisited + WomenShoesPerPage).map((elem, i) => {
                   return(
@@ -308,7 +326,13 @@ const Home = () => {
 
 
         const [KidsTopNumber, setKidsTopNumber] = useState(0) 
-        const KidsTopPerPage = 4;
+        // const KidsTopPerPage = 4;
+        let KidsTopPerPage = 2
+            if(window.innerWidth>800){
+                KidsTopPerPage = 4;
+          }else{
+            KidsTopPerPage = 1;
+          }
         const KidsTopVisited = KidsTopNumber * KidsTopPerPage;
         const displayKidsTop = kidsTop.slice(KidsTopVisited, KidsTopVisited + KidsTopPerPage).map((elem, i) => {
           return(
@@ -331,7 +355,13 @@ const Home = () => {
 
       //------------------------------PAGINATION KIDS BOTTOM-------------------------------\\
       const [KidsBottomNumber, setKidsBottomNumber] = useState(0) 
-      const KidsBottomPerPage = 4;
+    //   const KidsBottomPerPage = 4;
+    let KidsBottomPerPage = 2
+            if(window.innerWidth>800){
+                KidsBottomPerPage = 4;
+          }else{
+            KidsBottomPerPage = 1;
+          }
       const KidsBottomVisited = KidsBottomNumber * KidsBottomPerPage;
       const displayKidsBottom = kidsBottom.slice(KidsBottomVisited, KidsBottomVisited + KidsBottomPerPage).map((elem, i) => {
         return(
@@ -355,7 +385,13 @@ const Home = () => {
 
             //------------------------------PAGINATION KIDS SHOES-------------------------------\\
             const [KidsShoesNumber, setKidsShoesNumber] = useState(0) 
-            const KidsShoesPerPage = 4;
+            // const KidsShoesPerPage = 4;
+            let KidsShoesPerPage = 2
+            if(window.innerWidth>800){
+                KidsShoesPerPage = 4;
+          }else{
+            KidsShoesPerPage = 1;
+          }
             const KidsShoesVisited = KidsShoesNumber * KidsShoesPerPage;
             const displayKidsShoes = kidsShoes.slice(KidsShoesVisited, KidsShoesVisited + KidsShoesPerPage).map((elem, i) => {
               return(
@@ -380,7 +416,13 @@ const Home = () => {
 
 
   const [itemNumber, setItemNumber] = useState(0)
-  const itemPerPage = 4;
+//   const itemPerPage = 4;
+  let itemPerPage = 2
+            if(window.innerWidth>800){
+                itemPerPage = 4;
+          }else{
+            itemPerPage = 1;
+          }
   const itemVisited = itemNumber * itemPerPage;
   const displayMenTop = menTop.slice(itemVisited, itemVisited + itemPerPage).map((elem, i) => {
     return(
@@ -404,7 +446,13 @@ const Home = () => {
 
       //------------------------------PAGINATION MEN BOTTOM-------------------------------\\
       const [menBottomNumber, setMenBottomNumber] = useState(0) 
-      const menBottomPerPage = 4;
+    //   const menBottomPerPage = 4;
+      let menBottomPerPage = 2
+            if(window.innerWidth>800){
+                menBottomPerPage = 4;
+          }else{
+            menBottomPerPage = 1;
+          } 
       const menBottomVisited = menBottomNumber * menBottomPerPage;
       const displayMenBottom = menBottom.slice(menBottomVisited, menBottomVisited + menBottomPerPage).map((elem, i) => {
         return(
@@ -428,7 +476,13 @@ const Home = () => {
 
             //------------------------------PAGINATION MEN SHOES-------------------------------\\
             const [menShoesNumber, setMenShoesNumber] = useState(0) 
-            const menShoesPerPage = 4;
+            // const menShoesPerPage = 4;
+            let menShoesPerPage = 2
+            if(window.innerWidth>800){
+                menShoesPerPage = 4;
+          }else{
+            menShoesPerPage = 1;
+          } 
             const menShoesVisited = menShoesNumber * menShoesPerPage;
             const displayMenShoes = menShoes.slice(menShoesVisited, menShoesVisited + menShoesPerPage).map((elem, i) => {
               return(

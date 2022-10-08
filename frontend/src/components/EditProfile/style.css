@@ -65,3 +65,36 @@
     font-family: 'Bebas Neue', cursive;
     color: red;
 }
+@media (max-width: 600px){
+    .profile-divv{
+        margin-left: 10%;
+        font-size: 18px;
+    }
+    .edit h3{
+        width: 40%;
+        font-size: 17px;
+    }
+    .edit{
+        margin-bottom: 10px;
+
+    }
+    .prof-svg{
+        width: 15px;
+        height: 15px;
+        /* margin-left: 15px;
+        margin-top: 32px; */
+    }
+    .profile-input{
+        height: 20px;
+        margin-top: 30px;
+        border-radius: 10px;
+        width: 150px;
+    }
+    .edit-res{
+        margin-top: 10px;
+        text-align: center;
+        font-size: 18px;
+        font-family: 'Bebas Neue', cursive;
+        color: red;
+    }
+}

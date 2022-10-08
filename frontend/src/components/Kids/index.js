@@ -71,7 +71,13 @@ const AddToCart = (e) => {
 
 
         const [KidsTopNumber, setKidsTopNumber] = useState(0) 
-        const KidsTopPerPage = 4;
+        // const KidsTopPerPage = 4;
+        let KidsTopPerPage = 2
+            if(window.innerWidth>800){
+                KidsTopPerPage = 4;
+          }else{
+            KidsTopPerPage = 1;
+          }
         const KidsTopVisited = KidsTopNumber * KidsTopPerPage;
         const displayKidsTop = kidsTop.slice(KidsTopVisited, KidsTopVisited + KidsTopPerPage).map((elem, i) => {
           return(
@@ -94,7 +100,13 @@ const AddToCart = (e) => {
 
       //------------------------------PAGINATION KIDS BOTTOM-------------------------------\\
       const [KidsBottomNumber, setKidsBottomNumber] = useState(0) 
-      const KidsBottomPerPage = 4;
+      // const KidsBottomPerPage = 4;
+      let KidsBottomPerPage = 2
+            if(window.innerWidth>800){
+                KidsBottomPerPage = 4;
+          }else{
+            KidsBottomPerPage = 1;
+          }
       const KidsBottomVisited = KidsBottomNumber * KidsBottomPerPage;
       const displayKidsBottom = kidsBottom.slice(KidsBottomVisited, KidsBottomVisited + KidsBottomPerPage).map((elem, i) => {
         return(
@@ -118,7 +130,13 @@ const AddToCart = (e) => {
 
             //------------------------------PAGINATION KIDS SHOES-------------------------------\\
             const [KidsShoesNumber, setKidsShoesNumber] = useState(0) 
-            const KidsShoesPerPage = 4;
+            // const KidsShoesPerPage = 4;
+            let KidsShoesPerPage = 2
+            if(window.innerWidth>800){
+                KidsShoesPerPage = 4;
+          }else{
+            KidsShoesPerPage = 1;
+          }
             const KidsShoesVisited = KidsShoesNumber * KidsShoesPerPage;
             const displayKidsShoes = kidsShoes.slice(KidsShoesVisited, KidsShoesVisited + KidsShoesPerPage).map((elem, i) => {
               return(

@@ -15,7 +15,6 @@
 }
 /* 1 */
 .porduct-text{
-    /* color: green; */
     height: 15%;
     font-family: 'Barlow Condensed', sans-serif;
     margin-left: 20px;
@@ -90,4 +89,16 @@
 }
 .hoem-marg{
     margin-top: 120px;
+}
+
+@media (max-width: 600px){
+    .porductimg{
+        width: 200px;
+        height: 210px;
+    }
+    .box-div{
+
+        margin-top: 1px;
+        /* padding-bottom: 10px; */
+    }
 }
